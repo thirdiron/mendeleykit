@@ -22,7 +22,7 @@ import UIKit
 import WebKit
 
 @available (iOS 9.0, *)
-public class MendeleyLoginWebKitHandler: NSObject, WKNavigationDelegate, MendeleyLoginHandler
+public class MendeleyLoginWebKitHandler: NSObject, WKNavigationDelegate, WKUIDelegate, MendeleyLoginHandler
 {
     let oAuthServer: URL = MendeleyKitConfiguration.sharedInstance().baseAPIURL
     let oAuthProvider = MendeleyKitConfiguration.sharedInstance().oauthProvider
@@ -48,6 +48,7 @@ public class MendeleyLoginWebKitHandler: NSObject, WKNavigationDelegate, Mendele
         let newWebView = WKWebView(frame: controller.view.frame, configuration: configuration)
         newWebView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         newWebView.navigationDelegate = self
+        newWebView.uiDelegate = self
         controller.view.addSubview(newWebView)
 
         webView = newWebView
@@ -114,5 +115,13 @@ public class MendeleyLoginWebKitHandler: NSObject, WKNavigationDelegate, Mendele
                 oAuthProvider?.authenticate(withAuthenticationCode: code, completionBlock: oAuthCompletionBlock!)
             }
         }
+    }
+
+    public func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if let url = navigationAction.request.url {
+            UIApplication.shared.openURL(url)
+        }
+
+        return nil
     }
 }
