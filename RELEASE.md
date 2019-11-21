@@ -1,5 +1,9 @@
 RELEASE NOTES
 
+Date: November 2019 (3.4.3)
+- Fix forgotten password link
+- Remove unused code
+
 Date: June 2019 (3.4.2)
 - upgrade to Swift 5.0
 

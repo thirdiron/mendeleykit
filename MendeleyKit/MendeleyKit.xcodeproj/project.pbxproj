@@ -2339,6 +2339,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 3.4.3;
 				MODULEMAP_FILE = "MendeleyKit-OSX.modulemap";
 				MODULE_NAME = com.mendeley.MendeleyKit;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2376,6 +2377,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 3.4.3;
 				MODULEMAP_FILE = "MendeleyKit-OSX.modulemap";
 				MODULE_NAME = com.mendeley.MendeleyKit;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -2421,6 +2423,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 3.4.3;
 				MODULEMAP_FILE = "MendeleyKit-iOS.modulemap";
 				MODULE_NAME = com.mendeley.MendeleyKit;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2464,6 +2467,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 3.4.3;
 				MODULEMAP_FILE = "MendeleyKit-iOS.modulemap";
 				MODULE_NAME = com.mendeley.MendeleyKit;
 				MTL_ENABLE_DEBUG_INFO = NO;
