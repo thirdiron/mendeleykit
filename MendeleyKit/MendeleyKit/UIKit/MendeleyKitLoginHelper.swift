@@ -19,6 +19,7 @@
 */
 
 import Foundation
+import WebKit
 
 open class MendeleyKitLoginHelper: NSObject
 {
@@ -62,23 +63,39 @@ open class MendeleyKitLoginHelper: NSObject
         return code
     }
 
-    open func cleanCookiesAndURLCache()
+    @objc
+    public static func cleanCookiesAndURLCache()
     {
-        let oauthServer = MendeleyKitConfiguration.sharedInstance().baseAPIURL
-        URLCache.shared.removeAllCachedResponses()
-
-        let cookieStorage = HTTPCookieStorage.shared
-
-        guard let cookies = cookieStorage.cookies as [HTTPCookie]?
-            else { return }
-
-        for cookie in cookies
+        if #available(iOS 9.0, *)
         {
-            let domain = cookie.domain
-            if domain == kMendeleyKitURL || domain == oauthServer?.host
-            {
-                cookieStorage.deleteCookie(cookie)
+            let dataStore = WKWebsiteDataStore.default()
+            dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+                dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: records.filter { $0.displayName.contains("mendeley.com") }) {}
             }
         }
+        else
+        {
+            let oauthServer = MendeleyKitConfiguration.sharedInstance().baseAPIURL
+            URLCache.shared.removeAllCachedResponses()
+
+            let cookieStorage = HTTPCookieStorage.shared
+
+            guard let cookies = cookieStorage.cookies as [HTTPCookie]?
+                else { return }
+
+            for cookie in cookies
+            {
+                let domain = cookie.domain
+                if domain == kMendeleyKitURL || domain == oauthServer?.host
+                {
+                    cookieStorage.deleteCookie(cookie)
+                }
+            }
+        }
+    }
+
+    open func cleanCookiesAndURLCache()
+    {
+        MendeleyKitLoginHelper.cleanCookiesAndURLCache()
     }
 }

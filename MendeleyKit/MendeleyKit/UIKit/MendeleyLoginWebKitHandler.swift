@@ -37,7 +37,6 @@ public class MendeleyLoginWebKitHandler: NSObject, WKNavigationDelegate, WKUIDel
         configureWebView(controller)
 
         let helper = MendeleyKitLoginHelper()
-        helper.cleanCookiesAndURLCache()
         let request: URLRequest = helper.getOAuthRequest(redirectURI, clientID: clientID)
         _ = webView?.load(request)
     }
