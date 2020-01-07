@@ -21,7 +21,6 @@
 import UIKit
 import WebKit
 
-@available (iOS 9.0, *)
 public class MendeleyLoginWebKitHandler: NSObject, WKNavigationDelegate, WKUIDelegate, MendeleyLoginHandler
 {
     let oAuthServer: URL = MendeleyKitConfiguration.sharedInstance().baseAPIURL

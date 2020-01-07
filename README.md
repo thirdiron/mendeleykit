@@ -15,8 +15,8 @@ Much of the code in the SDK is still based on Objective-C. However, over the com
 
 ## Minimum requirements ##
 - Xcode 8
-- iOS 8.0 or higher
-- macOS 10.9 or higher
+- iOS 11.0 or higher
+- macOS 10.10 or higher
 
 ## Installation (CocoaPods) ##
 The easiest way to include MendeleyKit in your project is to use CocoaPods. There are 3 pods: one is cross-platform and can be used as a static library; the others are platform-specific and can be used as dynamic frameworks:
