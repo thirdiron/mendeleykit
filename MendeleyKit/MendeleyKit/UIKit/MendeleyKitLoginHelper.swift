@@ -71,9 +71,4 @@ open class MendeleyKitLoginHelper: NSObject
             dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: records.filter { $0.displayName.contains("mendeley.com") }) {}
         }
     }
-
-    open func cleanCookiesAndURLCache()
-    {
-        MendeleyKitLoginHelper.cleanCookiesAndURLCache()
-    }
 }
