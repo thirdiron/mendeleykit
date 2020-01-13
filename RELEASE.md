@@ -1,6 +1,6 @@
 RELEASE NOTES
 
-Date: January 2020 (3.4.4)
+Date: January 2020 (3.5.0)
 - fixed clean login cookies
 - requires iOS 11
 
