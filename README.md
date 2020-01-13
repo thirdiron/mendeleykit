@@ -1,6 +1,6 @@
 # MendeleyKit — the Mendeley SDK for Objective-C/Swift #
 
-Latest Release: June 2019 (3.4.3)
+Latest Release: January 2020 (3.4.4)
 
 ## About MendeleyKit 3.x ##
 MendeleyKit is a standalone framework providing convenience methods
