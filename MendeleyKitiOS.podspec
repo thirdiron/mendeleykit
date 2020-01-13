@@ -20,7 +20,7 @@ DESC
   s.requires_arc  = true
   s.source       = { :git => "https://github.com/Mendeley/mendeleykit.git", :tag => "3.4.3" }
   s.module_name = "MendeleyKitiOS"
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
   s.source_files  = "MendeleyKit/MendeleyKitiOS/MendeleyKitiOS.h", "MendeleyKit/MendeleyKit/*.h", "MendeleyKit/MendeleyKit/**/*.{h,m,swift}"
   s.swift_version = '5.0'
 end

@@ -20,10 +20,10 @@ DESC
   s.swift_version = '5.0'
   s.requires_arc = true
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
   s.ios.source_files = "MendeleyKit/MendeleyKit/*.h", "MendeleyKit/MendeleyKit/**/*.{h,m,swift}"
 
-  s.macos.deployment_target = '10.9'
+  s.macos.deployment_target = '10.10'
   s.macos.source_files = "MendeleyKit/MendeleyKitOSX/AppKit", "MendeleyKit/MendeleyKit/*.h", "MendeleyKit/MendeleyKit/**/*.{h,m,swift}"
   s.macos.exclude_files = 'MendeleyKit/MendeleyKit/UIKit/*.{h,m,swift}'
 end
