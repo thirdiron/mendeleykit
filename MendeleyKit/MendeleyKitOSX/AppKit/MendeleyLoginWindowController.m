@@ -26,7 +26,8 @@
 #import "MendeleyDefaultOAuthProvider.h"
 #import "NSError+MendeleyError.h"
 
-@interface MendeleyLoginWindowController ()
+@interface MendeleyLoginWindowController () <WebPolicyDelegate, WebFrameLoadDelegate>
+
 @property (nonatomic, strong) WebView *webView;
 @property (nonatomic, strong) NSURL *oauthServer;
 @property (nonatomic, strong) NSString *clientID;
@@ -125,25 +126,15 @@
                               frame:(WebFrame *)frame
                    decisionListener:(id<WebPolicyDecisionListener>)listener
 {
-    if ([request.URL.absoluteString hasPrefix:[self.oauthServer absoluteString]])
-    {
-        [listener use];
-        return;
-    }
-
     NSString *code = [self authenticationCodeFromURLRequest:request];
     if (nil != code)
     {
         MendeleyOAuthCompletionBlock oAuthCompletionBlock = self.oAuthCompletionBlock;
         [self.oauthProvider authenticateWithAuthenticationCode:code
                                                completionBlock:oAuthCompletionBlock];
-        [listener ignore];
-        return;
     }
 
-    ///TODO error handling
-
-    [listener ignore];
+    [listener use];
 }
 
 - (void)         webView:(WebView *)sender
@@ -165,9 +156,6 @@
     {
         completionBlock(NO, error);
     }
-    self.oAuthCompletionBlock = nil;
-    self.completionBlock = nil;
-    self.webView = nil;
 }
 
 #pragma mark private methods

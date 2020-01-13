@@ -1,6 +1,6 @@
 # MendeleyKit — the Mendeley SDK for Objective-C/Swift #
 
-Latest Release: June 2019 (3.4.3)
+Latest Release: January 2020 (3.5.0)
 
 ## About MendeleyKit 3.x ##
 MendeleyKit is a standalone framework providing convenience methods
@@ -15,8 +15,8 @@ Much of the code in the SDK is still based on Objective-C. However, over the com
 
 ## Minimum requirements ##
 - Xcode 8
-- iOS 8.0 or higher
-- macOS 10.9 or higher
+- iOS 11.0 or higher
+- macOS 10.10 or higher
 
 ## Installation (CocoaPods) ##
 The easiest way to include MendeleyKit in your project is to use CocoaPods. There are 3 pods: one is cross-platform and can be used as a static library; the others are platform-specific and can be used as dynamic frameworks:

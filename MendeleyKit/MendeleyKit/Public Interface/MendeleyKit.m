@@ -49,7 +49,7 @@
 #import "MendeleySharesAPI.h"
 #import "MendeleyUserPostsAPI.h"
 #import "MendeleyCommentsAPI.h"
-
+#import "MendeleyKit-Umbrella.h"
 
 @interface MendeleyKit ()
 
@@ -213,6 +213,9 @@
 - (void)clearAuthentication
 {
     [MendeleyKitConfiguration.sharedInstance.storeProvider removeOAuthCredentials];
+#if TARGET_OS_IPHONE
+    [MendeleyKitLoginHelper cleanCookiesAndURLCache];
+#endif
 }
 
 - (MendeleyTask *)checkAuthorisationStatusWithCompletionBlock:(MendeleyCompletionBlock)completionBlock

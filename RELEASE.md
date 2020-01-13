@@ -1,8 +1,12 @@
 RELEASE NOTES
 
+Date: January 2020 (3.5.0)
+- fixed clean login cookies
+- requires iOS 11
+
 Date: November 2019 (3.4.3)
-- Fix forgotten password link
-- Remove unused code
+- fixed forgotten password link
+- removed unused code
 
 Date: June 2019 (3.4.2)
 - upgrade to Swift 5.0
