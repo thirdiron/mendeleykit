@@ -39,21 +39,18 @@
 
 @implementation MendeleyLoginViewController
 
-- (id)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock
+- (instancetype)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock
 {
-    return [self initWithCompletionBlock:completionBlock
-               customOAuthProvider:nil];
-
+    return [self initWithCompletionBlock:completionBlock customOAuthProvider:nil];
 }
 
-
-- (id)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock
-    customOAuthProvider:(id<MendeleyOAuthProvider>)customOAuthProvider
+- (instancetype)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock customOAuthProvider:(id<MendeleyOAuthProvider>)customOAuthProvider
 {
     self = [super init];
-    if (nil != self)
+
+    if (self)
     {
-        if (nil == customOAuthProvider)
+        if (customOAuthProvider == nil)
         {
             _oauthProvider = [[MendeleyKitConfiguration sharedInstance] oauthProvider];
         }
@@ -67,12 +64,9 @@
         [[MendeleyKitConfiguration sharedInstance] configureOAuthWithParameters:oauthParameters];
         _completionBlock = completionBlock;
     }
+
     return self;
-
 }
-
-
-
 
 - (void)viewDidLoad
 {
@@ -84,25 +78,26 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    __strong MendeleyOAuthCompletionBlock oAuthCompletionBlock = ^void (MendeleyOAuthCredentials *credentials, NSError *error){
-        if (nil != credentials)
+
+    __strong MendeleyOAuthCompletionBlock oAuthCompletionBlock = ^void (MendeleyOAuthCredentials *credentials, NSError *error) {
+        if (credentials == nil)
         {
-            BOOL success = [MendeleyKitConfiguration.sharedInstance.storeProvider storeOAuthCredentials:credentials];
-            if (nil != self.completionBlock)
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.completionBlock(success, nil);
-                });
-            }
-        }
-        else
-        {
-            if (nil != self.completionBlock)
+            if (self.completionBlock != nil)
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.completionBlock(NO, error);
                 });
             }
+
+            return;
+        }
+
+        BOOL success = [MendeleyKitConfiguration.sharedInstance.storeProvider storeOAuthCredentials:credentials];
+        if (self.completionBlock != nil)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.completionBlock(success, nil);
+            });
         }
     };
     
@@ -113,10 +108,8 @@
                               controller:self
                        completionHandler:self.completionBlock
                             oauthHandler:oAuthCompletionBlock];
-    
 }
 
-#pragma mark Handle device rotations
 - (BOOL)shouldAutorotate
 {
     return YES;
@@ -126,4 +119,5 @@
 {
     return UIInterfaceOrientationMaskAll;
 }
+
 @end

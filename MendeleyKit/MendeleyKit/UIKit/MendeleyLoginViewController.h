@@ -32,9 +32,7 @@
    @param completionBlock
  */
 
-- (id)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
-
-
+- (instancetype)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
    custom initialisers
@@ -42,7 +40,6 @@
    NO otherwise
    @param completionBlock
  */
-- (id)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock
-          customOAuthProvider:(id<MendeleyOAuthProvider>)customOAuthProvider;
+- (instancetype)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock customOAuthProvider:(id<MendeleyOAuthProvider>)customOAuthProvider;
 
 @end
