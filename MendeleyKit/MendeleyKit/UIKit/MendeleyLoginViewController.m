@@ -29,7 +29,6 @@
 #import "MendeleyKit-Umbrella.h"
 
 @interface MendeleyLoginViewController ()
-@property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) NSURL *oauthServer;
 @property (nonatomic, copy) MendeleyCompletionBlock completionBlock;
 @property (nonatomic, strong) MendeleyOAuthCompletionBlock oAuthCompletionBlock;
