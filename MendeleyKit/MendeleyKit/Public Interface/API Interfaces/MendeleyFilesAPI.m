@@ -311,7 +311,7 @@
 
     // Vertical position must have a value
     if (!recentlyRead.vertical_position) {
-        recentlyRead.vertical_position = 0;
+        recentlyRead.vertical_position = @0;
     }
 
     MendeleyBlockExecutor *blockExec = [[MendeleyBlockExecutor alloc]
