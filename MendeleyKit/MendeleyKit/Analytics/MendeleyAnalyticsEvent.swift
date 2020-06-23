@@ -20,16 +20,16 @@
 
 import Foundation
 
-open class MendeleyAnalyticsEvent: MendeleySecureObject
+@objc open class MendeleyAnalyticsEvent: MendeleySecureObject
 {
-    open var name:String!
-    open var timestamp = Date()
-    open var profileID: String!
-    open var session_ID: String!
-    open var profile_uuid: String!
-    open var origin = [kMendeleyAnalyticsJSONOriginOS : kOriginOS,
+    @objc open var name:String!
+    @objc open var timestamp = Date()
+    @objc open var profileID: String!
+    @objc open var session_ID: String!
+    @objc open var profile_uuid: String!
+    @objc open var origin = [kMendeleyAnalyticsJSONOriginOS : kOriginOS,
         kMendeleyAnalyticsJSONOriginType: kOriginType]
-    public var properties = [String:Any]()
+    @objc public var properties = [String:Any]()
     
     public var duration_milliseconds: Int? {
         get {
