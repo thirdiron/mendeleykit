@@ -310,8 +310,8 @@
     [NSError assertArgumentNotNil:recentlyRead argumentName:@"recentlyRead"];
 
     // Vertical position must have a value
-    if (!recentlyRead.vertical_position) {
-        recentlyRead.vertical_position = 0;
+    if (recentlyRead.vertical_position == nil) {
+        recentlyRead.vertical_position = @0;
     }
 
     MendeleyBlockExecutor *blockExec = [[MendeleyBlockExecutor alloc]
@@ -321,14 +321,13 @@
     NSError *serialiseError = nil;
     NSData *jsonData = [modeller jsonObjectFromModelOrModels:recentlyRead
                                                        error:&serialiseError];
-    if (nil == jsonData)
+    if (jsonData == nil)
     {
         [blockExec executeWithMendeleyObject:nil
                                     syncInfo:nil
                                        error:serialiseError];
         return;
     }
-
 
     [self.provider invokePOST:self.baseURL
                           api:kMendeleyRESTAPIRecentlyRead
@@ -361,64 +360,5 @@
          }
      }];
 }
-
-/**
-   This service is not yet available.
-   - (void)updateRecentlyRead:(MendeleyRecentlyRead *)recentlyRead
-                      task:(MendeleyTask *)task
-           completionBlock:(MendeleyObjectCompletionBlock)completionBlock
-   {
-    [NSError assertArgumentNotNil:completionBlock argumentName:@"completionBlock"];
-    [NSError assertArgumentNotNil:recentlyRead argumentName:@"recentlyRead"];
-
-    MendeleyBlockExecutor *blockExec = [[MendeleyBlockExecutor alloc] initWithObjectCompletionBlock:completionBlock];
-
-    NSError *serialiseError = nil;
-    MendeleyModeller *modeller = [MendeleyModeller sharedInstance];
-    NSData *jsonData = [modeller jsonObjectFromModelOrModels:recentlyRead
-                                                       error:&serialiseError];
-
-    if (nil == jsonData)
-    {
-        [blockExec executeWithMendeleyObject:nil
-                                          syncInfo:nil
-                                             error:serialiseError];
-        return;
-    }
-
-    [self.provider invokePATCH:self.baseURL
-                           api:kMendeleyRESTAPIRecentlyRead
-             additionalHeaders:[self recentlyReadServiceHeaders]
-                      jsonData:jsonData
-        authenticationRequired:YES
-                          task:task
-               completionBlock: ^(MendeleyResponse *response, NSError *error) {
-         if (![self.helper isSuccessForResponse:response error:&error])
-         {
-             [blockExec executeWithMendeleyObject:nil
-                                               syncInfo:nil
-                                                  error:error];
-         }
-         else
-         {
-             MendeleyModeller *jsonModeller = [MendeleyModeller sharedInstance];
-             [jsonModeller parseJSONData:response.responseBody expectedType:kMendeleyModelRecentlyRead completionBlock: ^(MendeleyRecentlyRead *recentlyRead, NSError *parseError) {
-                  if (nil != parseError)
-                  {
-                      [blockExec executeWithMendeleyObject:nil
-                                                        syncInfo:nil
-                                                           error:parseError];
-                  }
-                  else
-                  {
-                      [blockExec executeWithMendeleyObject:recentlyRead
-                                                        syncInfo:response.syncHeader
-                                                           error:nil];
-                  }
-              }];
-         }
-     }];
-   }
- */
 
 @end
