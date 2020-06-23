@@ -122,4 +122,25 @@ class MendeleyAnalyticsTests: XCTestCase {
         let cachedEvents = manager.eventsFromArchive()
         XCTAssertTrue(20 == cachedEvents.count, "We should have 20 events but got \(cachedEvents.count)")
     }
+
+    func testEventSerialization() throws
+    {
+        let event = MendeleyAnalyticsEvent(name: "MyEvent")
+        let modeller = MendeleyModeller.sharedInstance()
+        let data = try modeller.jsonObject(fromModelOrModels: [event]) as Data
+        XCTAssertNotNil(data)
+
+        let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+        let jsonArray = try XCTUnwrap(jsonObject as? Array<Dictionary<String, Any>>)
+        XCTAssertEqual(jsonArray.count, 1)
+
+        let jsonEvent = try XCTUnwrap(jsonArray[0])
+        XCTAssertEqual(jsonEvent["name"] as? String, "MyEvent")
+        XCTAssertEqual(jsonEvent["properties"] as? Dictionary<String, String>, [:])
+        XCTAssertNotNil(jsonEvent["timestamp"] as? String)
+
+        let jsonOrigin = try XCTUnwrap(jsonEvent["origin"] as? Dictionary<String, String>)
+        XCTAssertEqual(jsonOrigin["os"], "iOS")
+        XCTAssertEqual(jsonOrigin["type"], "IOS")
+    }
 }

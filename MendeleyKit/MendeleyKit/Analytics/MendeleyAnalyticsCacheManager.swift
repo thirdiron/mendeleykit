@@ -78,7 +78,14 @@ open class MendeleyAnalyticsCacheManager: NSObject
     
     open func sendAndClearAnalyticsEvents(_ completionHandler: MendeleyCompletionBlock?)
     {
-        let events = eventsFromArchive()
+        // Need to filter out events with no name or no origin identity/version
+        // The API now rejects requests without those values,
+        // and the previous version of this library would not serialize them properly,
+        // hence accumulating invalid events in the cache.
+        let events = eventsFromArchive().filter {
+            $0.name != nil && $0.origin[kMendeleyAnalyticsJSONOriginIdentity] != nil && $0.origin[kMendeleyAnalyticsJSONOriginVersion] != nil
+        }
+
         if 0 == events.count
         {
             if nil != completionHandler
