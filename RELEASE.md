@@ -1,5 +1,10 @@
 RELEASE NOTES
 
+Date: June 2020 (3.5.1)
+- fixed analytics events serialization
+- fixed recently read vertical position default value
+- removed unused UIWebView reference
+
 Date: January 2020 (3.5.0)
 - fixed clean login cookies
 - requires iOS 11
