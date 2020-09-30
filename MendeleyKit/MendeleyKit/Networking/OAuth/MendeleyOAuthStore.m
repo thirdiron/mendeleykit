@@ -57,7 +57,7 @@ static NSMutableDictionary * keychainQueryDictionaryWithIdentifier()
     }
     NSMutableDictionary *keychainDictionary = keychainQueryDictionaryWithIdentifier();
     NSMutableDictionary *updateDictionary = [NSMutableDictionary dictionary];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:credentials];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:credentials requiringSecureCoding:YES error:nil];
     [updateDictionary setObject:data forKey:(__bridge id) kSecValueData];
     [updateDictionary setObject:(__bridge id) kSecAttrAccessibleWhenUnlocked
                          forKey:(__bridge id) kSecAttrAccessible];
@@ -114,11 +114,8 @@ static NSMutableDictionary * keychainQueryDictionaryWithIdentifier()
     }
 
     NSData *data = (__bridge NSData *) result;
-    MendeleyOAuthCredentials *oauthData = (MendeleyOAuthCredentials *) [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    if (nil == oauthData)
-    {
-    }
+    MendeleyOAuthCredentials *oauthData = (MendeleyOAuthCredentials *) [NSKeyedUnarchiver unarchivedObjectOfClass:MendeleyOAuthCredentials.class fromData:data error:nil];
     return oauthData;
-
 }
+
 @end

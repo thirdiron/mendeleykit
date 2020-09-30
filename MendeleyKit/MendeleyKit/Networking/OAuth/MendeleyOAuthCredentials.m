@@ -58,15 +58,11 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    NSArray *propertyNames = [MendeleyObjectHelper propertyNamesForModel:self];
-
-    [propertyNames enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, BOOL *stop) {
-         id value = [self valueForKey:name];
-         if (nil != value)
-         {
-             [encoder encodeObject:value forKey:name];
-         }
-     }];
+    [encoder encodeObject:self.refresh_token forKey:NSStringFromSelector(@selector(refresh_token))];
+    [encoder encodeObject:self.currentDate forKey:NSStringFromSelector(@selector(currentDate))];
+    [encoder encodeObject:self.token_type forKey:NSStringFromSelector(@selector(token_type))];
+    [encoder encodeObject:self.access_token forKey:NSStringFromSelector(@selector(access_token))];
+    [encoder encodeObject:self.expires_in forKey:NSStringFromSelector(@selector(expires_in))];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -84,15 +80,11 @@
 
 - (void)decodeWithDecoder:(NSCoder *)decoder
 {
-    NSArray *propertyNames = [MendeleyObjectHelper propertyNamesForModel:self];
-
-    [propertyNames enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, BOOL *stop) {
-         id value = [decoder decodeObjectOfClass:[self class] forKey:name];
-         if (nil != value)
-         {
-             [self setValue:value forKey:name];
-         }
-     }];
+    self.refresh_token = [decoder decodeObjectOfClass:NSString.class forKey:NSStringFromSelector(@selector(refresh_token))];
+    self.currentDate = [decoder decodeObjectOfClass:NSDate.class forKey:NSStringFromSelector(@selector(currentDate))];
+    self.token_type = [decoder decodeObjectOfClass:NSString.class forKey:NSStringFromSelector(@selector(token_type))];
+    self.access_token = [decoder decodeObjectOfClass:NSString.class forKey:NSStringFromSelector(@selector(access_token))];
+    self.expires_in = [decoder decodeObjectOfClass:NSNumber.class forKey:NSStringFromSelector(@selector(expires_in))];
 }
 
 @end
