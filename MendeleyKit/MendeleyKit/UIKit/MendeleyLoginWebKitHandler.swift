@@ -117,7 +117,7 @@ public class MendeleyLoginWebKitHandler: NSObject, WKNavigationDelegate, WKUIDel
 
     public func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if let url = navigationAction.request.url {
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url)
         }
 
         return nil
