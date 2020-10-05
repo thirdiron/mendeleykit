@@ -1,5 +1,9 @@
 RELEASE NOTES
 
+Date: October 2020 (3.5.2)
+- update token storage with secure coding
+- fixed compilation warnings
+
 Date: June 2020 (3.5.1)
 - fixed analytics events serialization
 - fixed recently read vertical position default value
