@@ -33,45 +33,35 @@
  */
 
 /**
-   @param arrayCompletionBlock
  */
 - (instancetype)initWithArrayCompletionBlock:(MendeleyArrayCompletionBlock)arrayCompletionBlock;
 
 /**
-   @param stringArrayCompletionBlock
  */
 - (instancetype)initWithStringArrayCompletionBlock:(MendeleyStringArrayCompletionBlock)stringArrayCompletionBlock;
 
 /**
-   @param completionBlock
  */
 - (instancetype)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
-   @param objectCompletionBlock
  */
 - (instancetype)initWithObjectCompletionBlock:(MendeleyObjectCompletionBlock)objectCompletionBlock;
 
 /**
-   @param dictionaryCompletionBlock
  */
 - (instancetype)initWithDictionaryCompletionBlock:(MendeleyDictionaryResponseBlock)dictionaryCompletionBlock;
 
 /**
-   @param binaryDataCompletionBlock
  */
 - (instancetype)initWithBinaryDataCompletionBlock:(MendeleyBinaryDataCompletionBlock)binaryDataCompletionBlock;
 
 /**
-   @param oauthCompletionBlock
  */
 - (instancetype)initWithOAuthCompletionBlock:(MendeleyOAuthCompletionBlock)oauthCompletionBlock;
 
 /**
    executes the MendeleyArrayCompletionBlock on the main thread
-   @param array
-   @param syncInfo
-   @param error
  */
 - (void)executeWithArray:(NSArray *)array
                 syncInfo:(MendeleySyncInfo *)syncInfo
@@ -80,16 +70,11 @@
 
 /**
    executes the MendeleyCompletionBlock on the main thread
-   @param success
-   @param error
  */
 - (void)executeWithBool:(BOOL)success error:(NSError *)error;
 
 /**
    executes the MendeleyObjectCompletionBlock on the main thread
-   @param mendeleyObject
-   @param syncInfo
-   @param error
  */
 - (void)executeWithMendeleyObject:(MendeleySecureObject *)mendeleyObject
                          syncInfo:(MendeleySyncInfo *)syncInfo
@@ -97,23 +82,16 @@
 
 /**
    executes the MendeleyDictionaryCompletionBlock on the main thread
-   @param dictionary
-   @param error
  */
 - (void)executeWithDictionary:(NSDictionary *)dictionary error:(NSError *)error;
 
 /**
    executes the MendeleyDictionaryCompletionBlock on the main thread
-   @param binaryData
-   @param error
  */
 - (void)executeWithBinaryData:(NSData *)binaryData error:(NSError *)error;
 
-
 /**
    executes the MendeleyOAuthCompletionBlock on the main thread
-   @param credentials
-   @param error
  */
 - (void)executeWithCredentials:(MendeleyOAuthCredentials *)credentials error:(NSError *)error;
 

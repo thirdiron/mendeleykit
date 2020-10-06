@@ -32,9 +32,9 @@
 /**
    requestWithBaseURL
    Generates a basic container for MendeleyRequest
-   @param baseURL
-   @param api - if nil, then it is assumed that the baseURL gives the full path
-   @param requestType
+   @param baseURL base URL
+   @param api if nil, then it is assumed that the baseURL gives the full path
+   @param requestType request type
    @return a MendeleyRequest with a basic NSURLRequest property
  */
 + (MendeleyRequest *)requestWithBaseURL:(NSURL *)baseURL
@@ -44,9 +44,9 @@
 /**
    requestWithBaseURL
    Generates a basic authenticated container for MendeleyRequest
-   @param baseURL
-   @param api - if nil, then it is assumed that the baseURL gives the full path
-   @param requestType
+   @param baseURL base URL
+   @param api if nil, then it is assumed that the baseURL gives the full path
+   @param requestType request type
    @return a MendeleyRequest with a basic authenticated NSURLRequest property
  */
 + (MendeleyRequest *)authenticatedRequestWithBaseURL:(NSURL *)baseURL
@@ -62,7 +62,6 @@
 
 /**
    adds a header to the request
-   @param headerParameters
  */
 - (void)addHeaderWithParameters:(NSDictionary *)headerParameters;
 
@@ -70,8 +69,6 @@
    adds a list of parameters to the request body.
    Note: this method should only be used when adding JSON (or similar) request parameters to the body instead of
    header. It must NOT be used for uploading data
-   @param bodyParameters
-   @param isJSON
  */
 - (void)addBodyWithParameters:(NSDictionary *)bodyParameters isJSON:(BOOL)isJSON;
 

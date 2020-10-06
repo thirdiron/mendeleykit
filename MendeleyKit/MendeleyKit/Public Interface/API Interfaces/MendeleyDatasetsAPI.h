@@ -34,9 +34,6 @@
 
 /**
 obtains a list of datasets for the first page.
-@param parameters the parameter set to be used in the request
-@param task
-@param completionBlock
 */
 - (void)datasetListWithQueryParameters:(MendeleyDatasetParameters *)queryParameters
                                   task:(MendeleyTask *)task
@@ -45,10 +42,6 @@ obtains a list of datasets for the first page.
 /**
  This method is only used when paging through a list of datasets on the server.
  All required parameters are provided in the linkURL, which should not be modified
-
- @param linkURL the full HTTP link to the dataset listings page
- @param task
- @param completionBlock
  */
 - (void)datasetListWithLinkedURL:(NSURL *)linkURL
                             task:(MendeleyTask *)task
@@ -56,9 +49,6 @@ obtains a list of datasets for the first page.
 
 /**
  obtains a dataset for given ID from the library
- @param datasetID
- @param task
- @param completionBlock
  */
 - (void)datasetWithDatasetID:(NSString *)datasetID
                         task:(MendeleyTask *)task
@@ -67,9 +57,6 @@ obtains a list of datasets for the first page.
 /**
  Creates a dataset based on the mendeley object model provided in the argument.
  The server will respond with the JSON data structure for the new object
- @param mendeleyDataset The dataset model
- @param task The networking task
- @param completionBlock The completion block
  */
 - (void)createDataset:(MendeleyDataset *)mendeleyDataset
                  task:(MendeleyTask *)task
@@ -93,8 +80,6 @@ obtains a list of datasets for the first page.
 
 /**
  obtains a list of licences that can be applied to datasets
- @param task
- @param completionBlock
  */
 - (void)datasetLicencesListWithTask:(MendeleyTask *)task
                     completionBlock:(MendeleyArrayCompletionBlock)completionBlock;

@@ -67,7 +67,10 @@
     __block NSMutableString *httpBodyString = [NSMutableString string];
     NSString *addString = @"&";
     [parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
          NSString *urlEncodedValue = [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+#pragma GCC diagnostic pop
          urlEncodedValue = [urlEncodedValue stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];
          [httpBodyString appendFormat:@"%@=%@", key, urlEncodedValue];
          [httpBodyString appendString:addString];

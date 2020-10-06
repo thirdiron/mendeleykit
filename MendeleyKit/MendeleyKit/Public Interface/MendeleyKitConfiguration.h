@@ -59,7 +59,6 @@
  ** kMendeleyOAuthProviderKey    - the name of the class implementing the MendeleyOAuthDefaultProvider protocol
  ** kMendeleyNetworkProviderKey  - the name of the class implementing the MendeleyNetworkProvider protocol
  ** kMendeleyDocumentViewType    - the type of view to use while calling document related services. Value must be a NSString. Possible values are specified in the globals header.
-   @param configurationParameters
  */
 - (void)changeConfigurationWithParameters:(NSDictionary *)configurationParameters;
 

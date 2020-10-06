@@ -28,29 +28,29 @@
    provides convenience methods to create Mendeley specific errors
  */
 /**
-   @param code
-   @param localizedDescription
+   @param code code
+   @param localizedDescription localized description
    @return an error with default Mendeley SDK domain
  */
 + (instancetype)errorWithCode:(MendeleyErrorCode)code localizedDescription:(NSString *)localizedDescription;
 
 /**
-   @param code
+   @param code code
    @return an error object with default Mendeley Error domain
  */
 + (instancetype)errorWithCode:(MendeleyErrorCode)code;
 
 /**
-   @param response
-   @param url
+   @param response response
+   @param url URL
    @return an error with default Mendeley Error domain
  */
 + (instancetype)errorWithMendeleyResponse:(MendeleyResponse *)response requestURL:(NSURL *)url;
 
 /**
-   @param response
-   @param url
-   @param body
+   @param response response
+   @param url URL
+   @param body body
    @return an error with default Mendeley Error domain
  */
 + (instancetype)errorWithMendeleyResponse:(MendeleyResponse *)response requestURL:(NSURL *)url failureBody:(NSData *)body;

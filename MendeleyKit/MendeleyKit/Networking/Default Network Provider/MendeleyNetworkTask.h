@@ -30,9 +30,6 @@
 
 /**
    initialises a network task
-   @param request
-   @param session
-   @param completionBlock
  */
 - (instancetype)initTaskWithRequest:(NSURLRequest *)request
                             session:(NSURLSession *)session
@@ -45,7 +42,6 @@
 
 /**
    cancels a task
-   @param completionBlock
  */
 - (void)cancelTaskWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 
@@ -58,11 +54,11 @@
 @property (copy, nonatomic, readonly) MendeleyResponseProgressBlock progressBlock;
 
 /**
-   @param request
-   @param session
-   @param fileURL - location of file to be uploaded
-   @param progressBlock
-   @param completionBlock
+   @param request request
+   @param session session
+   @param fileURL location of file to be uploaded
+   @param progressBlock progress block
+   @param completionBlock completion block
  */
 - (instancetype)initUploadTaskWithRequest:(NSURLRequest *)request
                                   session:(NSURLSession *)session
@@ -82,11 +78,11 @@
 
 /**
    initialises a MendeleyNetworkDownloadTask
-   @param request
-   @param session
-   @param fileURL - download file location
-   @param progressBlock
-   @param completionBlock
+   @param request request
+   @param session session
+   @param fileURL download file location
+   @param progressBlock progress block
+   @param completionBlock completion block
  */
 - (instancetype)initDownloadTaskWithRequest:(NSURLRequest *)request
                                     session:(NSURLSession *)session
@@ -96,7 +92,6 @@
 
 /**
    Adds a NSURLSessionDownloadTask to the object for execution
-   @param downloadTask
  */
 - (void)addRealDownloadTask:(NSURLSessionDownloadTask *)downloadTask;
 

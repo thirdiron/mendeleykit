@@ -27,8 +27,6 @@
 
 /**
    creates a simple network task based on a NSURLSession object
-   @param sessionTask
-   @param completionBlock
  */
 - (instancetype)initWithSessionTask:(NSURLSessionTask *)sessionTask
                     completionBlock:(MendeleyResponseCompletionBlock)completionBlock;

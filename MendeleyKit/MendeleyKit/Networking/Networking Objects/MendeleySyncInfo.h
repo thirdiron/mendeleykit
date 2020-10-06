@@ -47,7 +47,6 @@
 
 /**
    creates a sync header out of an HTTP header
-   @param allHeaderFields
  */
 - (id)initWithAllHeaderFields:(NSDictionary *)allHeaderFields;
 @end

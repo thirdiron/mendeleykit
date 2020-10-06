@@ -33,15 +33,6 @@
 
 /**
    this method will GET HTTP method to download data from the server
-   @param fileURL
-   @param baseURL
-   @param api
-   @param additionalHeaders any additional headers to be used in the request
-   @param queryParameters this will be a set of query parameters
-   @param authenticationRequired
-   @param task
-   @param progressBlock
-   @param completionBlock
  */
 - (void)invokeDownloadToFileURL:(NSURL *)fileURL
                         baseURL:(NSURL *)baseURL
@@ -55,13 +46,6 @@
 
 /**
    uploading files method
-   @param fileURL
-   @param baseURL
-   @param api
-   @param additionalHeaders any additional headers to be used in the request
-   @param task
-   @param progressBlock
-   @param completionBlock
  */
 - (void)invokeUploadForFileURL:(NSURL * )fileURL
                        baseURL:(NSURL *)baseURL
@@ -77,12 +61,6 @@
    this method will GET HTTP method to download data from the server based on a
    complete link URL
    This method assumes that authentication is required
-   @param linkURL
-   @param api
-   @param additionalHeaders any additional headers to be used in the request
-   @param queryParameters this will be a set of query parameters
-   @param task
-   @param completionBlock
  */
 - (void)         invokeGET:(NSURL *)linkURL
          additionalHeaders:(NSDictionary *)additionalHeaders
@@ -93,13 +71,13 @@
 
 /**
    this method will GET HTTP method to download data from the server
-   @param baseURL
-   @param api
+   @param baseURL base URL
+   @param api API path
    @param additionalHeaders any additional headers to be used in the request
    @param queryParameters this will be a set of query parameters
    @param authenticationRequired - some GET methods may not require authentication
-   @param task
-   @param completionBlock
+   @param task task
+   @param completionBlock completion block
  */
 - (void)         invokeGET:(NSURL *)baseURL
                        api:(NSString *)api
@@ -112,12 +90,6 @@
 /**
    this method will PUT HTTP method to upload & update data to the server.
    Used to update existing data on the server. All PUT methods are assumed to require authentication
-   @param baseURL
-   @param api
-   @param additionalHeaders any additional headers to be used in the request
-   @param bodyParameters
-   @param task
-   @param completionBlock
  */
 - (void)         invokePUT:(NSURL *)baseURL
                        api:(NSString *)api
@@ -131,13 +103,6 @@
 /**
  this method will PUT HTTP method to upload & update data to the server.
  Used to update existing data on the server. All PUT methods are assumed to require authentication
- @param baseURL
- @param api
- @param additionalHeaders any additional headers to be used in the request
- @param jsonData
- @param authenticationRequired
- @param task
- @param completionBlock
  */
 - (void)         invokePUT:(NSURL *)baseURL
                        api:(NSString *)api
@@ -150,14 +115,6 @@
 /**
    this method will POST HTTP method to upload data to the server.
     Use this to store data on the server.
-   @param baseURL
-   @param api
-   @param additionalHeaders any additional headers to be used in the request
-   @param bodyParameters a body consisting of NSString based key-value pairs
-   @param authenticationRequired
-   @param isJSON
-   @param task
-   @param completionBlock
  */
 - (void)        invokePOST:(NSURL *)baseURL
                        api:(NSString *)api
@@ -171,13 +128,6 @@
 /**
    this method will POST HTTP method to upload data to the server.
    Use this to store data on the server. All POST requests are assumed to require authentication
-   @param baseURL
-   @param api
-   @param additionalHeaders any additional headers to be used in the request
-   @param jsonData
-   @param authenticationRequired
-   @param task
-   @param completionBlock
  */
 - (void)        invokePOST:(NSURL *)baseURL
                        api:(NSString *)api
@@ -191,10 +141,6 @@
    this method will create a DELETE HTTP request.
    Use this to store data on the server.
    Delete methods require authentication
-   @param baseURL
-   @param api
-   @param task
-   @param completionBlock
  */
 - (void)      invokeDELETE:(NSURL *)baseURL
                        api:(NSString *)api
@@ -207,12 +153,6 @@
 /**
    this method will create a PATCH HTTP request.
    Use this to store data on the server
-   @param baseURL
-   @param api
-   @param additionalHeaders any additional headers to be used in the request
-   @param bodyParameters
-   @param task
-   @param completionBlock
  */
 - (void)       invokePATCH:(NSURL *)baseURL
                        api:(NSString *)api
@@ -225,12 +165,6 @@
 /**
    this method will create a PATCH HTTP request.
    Use this to update data on the server
-   @param baseURL
-   @param api
-   @param additionalHeaders any additional headers to be used in the request
-   @param jsonData
-   @param task
-   @param completionBlock
  */
 - (void)       invokePATCH:(NSURL *)baseURL
                        api:(NSString *)api
@@ -242,10 +176,6 @@
 
 /**
    this method will create a HEAD request.
-   @param baseURL
-   @param api
-   @param task
-   @param completionBlock
  */
 - (void)        invokeHEAD:(NSURL *)baseURL
                        api:(NSString *)api
@@ -255,15 +185,12 @@
 
 /**
    cancels a specific MendeleyTask
-   @param task
-   @param completionBlock
  */
 - (void) cancelTask:(MendeleyTask *)task
     completionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
    cancels ALL existing tasks
-   @param completionBlock
  */
 - (void)cancelAllTasks:(MendeleyCompletionBlock)completionBlock;
 

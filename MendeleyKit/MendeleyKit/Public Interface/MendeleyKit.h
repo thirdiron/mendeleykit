@@ -59,7 +59,7 @@
    this method checks the validity of access and refresh token.
    E.g. if user changes password on another client, the refresh_token will expire
    In this case this method will return success == NO and error != nil in the completion block
-   @param completionBlock
+   @param completionBlock the completion block
    @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)checkAuthorisationStatusWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
@@ -139,8 +139,8 @@
 
 /**
    A convenience method to obtain the profile icon for a given MendeleyProfile object
-   @param profile
-   @param iconType
+   @param profile profile
+   @param iconType icon type
    @param completionBlock returning the image data as NSData
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -153,7 +153,7 @@
 /**
    Obtains a profile icon based on the given link URL string
    The URL string for a given icon is supplied with the MendeleyProfile metadata (see MendeleyPhoto property)
-   @param iconURLString
+   @param iconURLString icon URL
    @param completionBlock returning the image data as NSData
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -179,7 +179,7 @@
    If the user wants to update his password the following properties must be provided
    - password (i.e. the new password)
    - old_password (i.e the previous password to be replaced)
-   @param profile - the profile containing the updated parameters.
+   @param myProfile - the profile containing the updated parameters.
    @param completionBlock - the completionHandler.
    @return a cancellable MendeleyTask object
  */
@@ -190,11 +190,6 @@
 
 /**
  Upload a new original photo asset for my profile.
- @param fileURL
- @param contentType
- @param contentLenght
- @param progressBlock
- @param completionBlock
  */
 - (MendeleyTask *)uploadPhotoWithFile:(NSURL *)fileURL
                 contentType:(NSString *)contentType
@@ -230,7 +225,7 @@
 /**
    obtains the first page of authored documents for another user.
    @param profileID profile ID of the user
-   @param parameters the parameter set to be used in the request
+   @param queryParameters the parameter set to be used in the request
    @param completionBlock returning array of documents
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -383,7 +378,7 @@
    uploads a file from a location and returns a Mendeley Document in the completion handler
    @param fileURL the location of the file
    @param mimeType e.g. application/pdf
-   @param completionBlock
+   @param completionBlock the completion block
    @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)documentFromFileWithURL:(NSURL *)fileURL mimeType:(NSString *)mimeType completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
@@ -409,7 +404,7 @@
  @param groupID the target group ID. Use nil if you want to clone to the users' library. In this case the profile ID must be provided
  @param folderID the target folder ID.
  @param profileID must be provided if the groupID is nil (this means clone to user library). Otherwise values are ignored
- @param completionBlock
+ @param completionBlock the completion block
  */
 - (MendeleyTask *)cloneDocumentWithID:(NSString *)documentID
                               groupID:(NSString *)groupID
@@ -422,7 +417,7 @@
  The target document must exist - otherwise the completionBlock will return an error
  @param sourceDocumentID the source document with files
  @param targetDocumentID the target document ID
- @param completionBlock
+ @param completionBlock the completion block
  */
 - (MendeleyTask *)cloneDocumentFiles:(NSString *)sourceDocumentID
                     targetDocumentID:(NSString *)targetDocumentID
@@ -436,7 +431,7 @@
  @param groupID the target group ID. Use nil if you want to clone to the users' library. In this case the profile ID must be provided
  @param folderID the target folder ID.
  @param profileID must be provided if the groupID is nil (this means clone to user library). Otherwise values are ignored
- @param completionBlock
+ @param completionBlock the completion block
  */
 - (MendeleyTask *)cloneDocumentAndFiles:(NSString *)documentID
                                 groupID:(NSString *)groupID
@@ -565,7 +560,7 @@
    By default 20 items are returned.
    The number of records saved on the server is limited.
    @param queryParameters the parameter set to be used in the request
-   @param completionBlock
+   @param completionBlock the completion block
  */
 - (MendeleyTask *)recentlyReadWithParameters:(MendeleyRecentlyReadParameters *)queryParameters
                              completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
@@ -576,7 +571,7 @@
    The new one is inserted into the list at a position determined by the
    current server time or at the time provided by the client if specified.
    @param recentlyRead the recently read object to create
-   @param completionBlock
+   @param completionBlock the completion block
  */
 - (MendeleyTask *)addRecentlyRead:(MendeleyRecentlyRead *)recentlyRead
                   completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
@@ -589,7 +584,7 @@
    It is not brought to the top of the history.
    If there is no entry with matching id in the recent history, it returns an error.
    @param recentlyRead the recently read object to update
-   @param completionBlock
+   @param completionBlock the completion block
    - (MendeleyTask *)updateRecentlyRead:(MendeleyRecentlyRead *)recentlyRead
                      completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
  */
@@ -766,8 +761,8 @@
 
 /**
    A convenience method to obtain the group icon for a given MendeleyGroup object
-   @param group
-   @param iconType
+   @param group group
+   @param iconType icon type
    @param completionBlock returning the image data as NSData
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -779,7 +774,7 @@
 /**
    Obtains a group icon based on the given link URL string
    The URL string for a given icon is supplied with the MendeleyGroup metadata (see MendeleyPhoto property)
-   @param iconURLString
+   @param iconURLString icon URL
    @param completionBlock returning the image data as NSData
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -870,9 +865,8 @@
 #pragma mark - Followers
 /**
    Obtain a list of followers for a given user.
-   @param profileID
-   @param parameters
-   @param task
+   @param profileID profile ID
+   @param parameters parameters
    @param completionBlock - the array contained in the completionBlock will be an array of MendeleyFollow objects
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -882,9 +876,8 @@
 
 /**
    Obtain a list of users followed by a given user.
-   @param profileID
-   @param parameters
-   @param task
+   @param profileID profile ID
+   @param parameters parameters
    @param completionBlock - the array contained in the completionBlock will be an array of MendeleyFollow objects
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -894,9 +887,8 @@
 
 /**
    Obtain a list of pending followers for a given user.
-   @param profileID
-   @param parameters
-   @param task
+   @param profileID profile ID
+   @param parameters parameters
    @param completionBlock - the array contained in the completionBlock will be an array of MendeleyFollow objects
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -906,9 +898,8 @@
 
 /**
    Obtain a list of pending users followed by a given user.
-   @param profileID
-   @param parameters
-   @param task
+   @param profileID profile ID
+   @param parameters parameters
    @param completionBlock - the array contained in the completionBlock will be an array of MendeleyFollow objects
    @return a MendeleyTask object used for cancelling the operation
  */
@@ -918,8 +909,7 @@
 
 /**
  Start following another user.
- @param followedID
- @param task
+ @param followedID followed ID
  @param completionBlock - the object contained in the completionBlock will be a MendeleyFollow object
  @return a MendeleyTask object used for cancelling the operation
  */
@@ -928,8 +918,8 @@
 
 /**
  Accept a pending follow request
- @param requestID
- @param completionBlock
+ @param requestID request ID
+ @param completionBlock the completion block
  @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)acceptFollowRequestWithID:(NSString *)requestID
@@ -937,8 +927,8 @@
 
 /**
  Stop following a profile, cancel a follow request or reject a follow request
- @param relationshipID
- @param completionBlock
+ @param relationshipID relationship ID
+ @param completionBlock the completion block
  @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)stopOrDenyRelationshipWithID:(NSString *)relationshipID
@@ -946,9 +936,9 @@
 
 /**
  Returns a follow relationship between two profiles if it exists.
- @param followerID
- @param followedID
- @param completionBlock
+ @param followerID follower ID
+ @param followedID followed ID
+ @param completionBlock the completion block
  @return a MendeleyTask object used for cancelling the operation
  */
 
@@ -974,7 +964,7 @@
  All required parameters are provided in the linkURL, which should not be modified
  
  @param linkURL the full HTTP link to the document listings page
- @param completionBlock
+ @param completionBlock the completion block
  @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)feedListWithLinkedURL:(NSURL *)linkURL
@@ -982,8 +972,8 @@
 
 /**
  obtains a list of feeds for the first page.
- @param parameters the parameter set to be used in the request
- @param completionBlock
+ @param queryParameters the parameter set to be used in the request
+ @param completionBlock the completion block
  @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)feedListWithQueryParameters:(MendeleyFeedsParameters *)queryParameters
@@ -991,35 +981,24 @@
 
 /**
  obtains feed with a given identifier
- @param feedID
- @param completionBlock
- @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)feedWithId:(NSString *)feedId
    completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
 
 /**
  likes a feed item.
- @param feedID
- @param completionBlock
- @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)likeFeedWithID:(NSString *)feedID
        completionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
  likes a feed item.
- @param feedID
- @param completionBlock
- @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)unlikeFeedWithID:(NSString *)feedID
          completionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
  List of users that like given item.
- @param feedID
- @param completionBlock
  */
 - (MendeleyTask *)likersForFeedWithID:(NSString *)feedID
             completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
@@ -1027,8 +1006,6 @@
 
 /**
  List of users that have shared given item.
- @param feedID
- @param completionBlock
  */
 
 - (MendeleyTask *)sharersForFeedWithID:(NSString *)feedID
@@ -1038,9 +1015,6 @@
 
 /**
  Creates a new user post.
- @param newPost
- @param task
- @param completionBlock
  */
 
 - (MendeleyTask *)createUserPost:(MendeleyNewUserPost *)newPost
@@ -1048,27 +1022,18 @@
 
 /**
  Deletes a user post.
- @param postID
- @param completionBlock
- @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)deleteUserPostWithPostID:(NSString *)postID
                            completionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
  Creates a new group post.
- @param newGroupPost
- @param task
- @param completionBlock
  */
 - (MendeleyTask *)createGroupPost:(MendeleyNewGroupPost *)groupPost
                   completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
 
 /**
  Deletes a group post.
- @param postID
- @param task
- @param completionBlock
  */
 - (MendeleyTask *)deleteGroupPostWithPostID:(NSString *)postID
                             completionBlock:(MendeleyCompletionBlock)completionBlock;
@@ -1091,9 +1056,6 @@
 
 /**
  Get expanded (i.e. with profile information) comments.
- @param newsItemID
- @param completionBlock
- @return task
  */
 
 - (MendeleyTask *)expandedCommentsWithNewsItemID:(NSString *)newsItemID
@@ -1101,9 +1063,6 @@
 
 /**
  Get single comment.
- @param commentID
- @param completionBlock
- @return task
  */
 
 - (MendeleyTask *)commentWithCommentID:(NSString *)commentID
@@ -1111,9 +1070,6 @@
 
 /**
  Create new comment.
- @param comment
- @param completionBlock
- @return task
  */
 
 - (MendeleyTask *)createComment:(MendeleyComment *)comment
@@ -1121,10 +1077,6 @@
 
 /**
  Edit existing comment.
- @param commentID
- @param update
- @param completionBlock
- @return task
  */
 
 - (MendeleyTask *)updateCommentWithCommentID:(NSString *)commentID
@@ -1133,9 +1085,6 @@
 
 /**
  Delete comment.
- @param commentID
- @param completionBlock
- @return task
  */
 
 - (MendeleyTask *)deleteCommentWithCommentID:(NSString *)commentID

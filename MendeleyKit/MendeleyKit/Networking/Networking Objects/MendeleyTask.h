@@ -34,13 +34,13 @@
 
 
 /**
-   @param taskID
+   @param taskID task ID
    @return an instance of type MendeleyCancellationRequest
  */
 - (instancetype)initWithTaskID:(NSString *)taskID;
 
 /**
-   @param taskObject
+   @param requestObject object
    @return a cancellable task/request object
  */
 - (instancetype)initWithRequestObject:(id<MendeleyCancellableRequest>)requestObject;

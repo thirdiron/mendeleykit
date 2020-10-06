@@ -33,17 +33,12 @@
 @property (nonatomic, strong, readonly) NSURL *fileURL;
 /**
    initialises a MendeleyResponse object
-   @param urlResponse
-   @return MendeleyResponse object
  */
 
 + (MendeleyResponse *)mendeleyReponseForURLResponse:(NSURLResponse *)urlResponse;
 
 /**
    initialises a MendeleyResponse object with a file location (to be used for up/download)
-   @param urlResponse
-   @param fileURL
-   @return MendeleyResponse object
  */
 + (MendeleyResponse *)mendeleyReponseForURLResponse:(NSURLResponse *)urlResponse
                                             fileURL:(NSURL *)fileURL;
@@ -52,8 +47,8 @@
    used for deserialising response data. This method is used for cases where
    the body content is of type JSON.
    Don't use for binary data
-   @param rawResponseData
-   @param error
+   @param rawResponseData the raw response data
+   @param error the error
    @return YES if successful (error is nil) or NO otherwise
  */
 - (BOOL)deserialiseRawResponseData:(NSData *)rawResponseData error:(NSError **)error;
@@ -65,7 +60,7 @@
    a.) the error message returned from the server responds with gets passed into the error localizedDescription
    b.) the downloaded data - which contains the JSON error message - gets removed again
    @param fileURL the location to which the data have been downloaded
-   @param the error pointer returned from the server. If this is nil and the status code is NOT ok we will create and error here
+   @param error the error pointer returned from the server. If this is nil and the status code is NOT ok we will create and error here
    @return YES if successful (error is nil) or NO otherwise
  */
 - (BOOL)parseFailureResponseFromFileDownloadURL:(NSURL *)fileURL error:(NSError **)error;

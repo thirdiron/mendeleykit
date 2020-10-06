@@ -58,7 +58,7 @@
 
 /**
  returns a timer for a given name
- @param name
+ @param name name
  @return the MendeleyTimer object if found
  */
 + (MendeleyTimer *)timerWithName:(NSString *)name;

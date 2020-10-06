@@ -39,7 +39,7 @@ typedef NS_ENUM (int, MendeleyPerformanceMeterConfiguration)
 
 /**
  creates a simple timer 
- @param timerName
+ @param timerName timer name
  @return string with timerID
  */
 - (NSString *)createSimpleTimerWithName:(NSString *)timerName;
@@ -51,43 +51,32 @@ typedef NS_ENUM (int, MendeleyPerformanceMeterConfiguration)
 
 /**
  stops and saves the time for timer with ID
- @param timerID
- @return string ??
  */
 - (NSString *)stopAndSaveSimpleTimerWithID:(NSString *)timerID;
 
 /**
  creates a new session with name
- @param sessionName
- @return session ID
  */
 - (NSString *)createNewSessionWithName:(NSString *)sessionName;
 
 /**
  adds a timer to a session with given ID
- @param timerName
- @param sessionID
- @return string timerID
  */
 - (NSString *)addTimerWithName:(NSString *)timerName ToSession:(NSString *)sessionID;
 
 /**
  starts the timer with timer/session ID
- @param timerID
- @param sessionID
  */
 - (void)startTimerWithID:(NSString *)timerID inSession:(NSString *)sessionID;
 
 /**
  stops the timer for timer/session ID
- @param timerID
- @param sessionID
  */
 - (void)stopTimerWithID:(NSString *)timerID inSession:(NSString *)sessionID;
 
 /**
  saves the timing report for a given session
- @param sessionID
+ @param sessionID session ID
  @return path to file saved
  */
 - (NSString *)saveReportAndFinalizeSession:(NSString *)sessionID;

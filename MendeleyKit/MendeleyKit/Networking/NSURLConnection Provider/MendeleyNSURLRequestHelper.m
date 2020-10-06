@@ -52,7 +52,10 @@
         return NO;
     }
     NSMutableURLRequest *urlRequest = self.mendeleyRequest.mutableURLRequest;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     self.thisConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:self];
+#pragma GCC diagnostic pop
     if (nil == self.thisConnection)
     {
         if (nil != self.completionBlock)
