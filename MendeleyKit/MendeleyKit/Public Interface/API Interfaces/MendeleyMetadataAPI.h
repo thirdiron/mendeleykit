@@ -28,12 +28,6 @@
    Developers should use the methods provided in MendeleyKit rather
    than the methods listed here.
  */
-
-/**
-   @param queryParameters
-   @param task
-   @param completionBlock
- */
 - (void)metadataLookupWithQueryParameters:(MendeleyMetadataParameters *)queryParameters
                                      task:(MendeleyTask *)task
                           completionBlock:(MendeleyObjectCompletionBlock)completionBlock;

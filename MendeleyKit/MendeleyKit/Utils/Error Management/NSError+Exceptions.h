@@ -25,24 +25,18 @@
 /**
    asserts that an argument is not nil. If a required argument is nil, this is considered a fatal error, and the SDK will throw an exception.
    This will most likely cause the app to exit/crash.
-   @param argument
-   @param argumentName
  */
 + (void)assertArgumentNotNil:(id)argument argumentName:(NSString *)argumentName;
 
 /**
    asserts that an argument is not nil. If a required argument is nil, this is considered a fatal error, and the SDK will throw an exception.
    This will most likely cause the app to exit/crash.
-   @param argument
-   @param argumentName
  */
 + (void)assertStringArgumentNotNilOrEmpty:(NSString *)argument argumentName:(NSString *)argumentName;
 
 /**
    asserts that an argument is not nil. If a required argument is nil, this is considered a fatal error, and the SDK will throw an exception.
    This will most likely cause the app to exit/crash.
-   @param argument
-   @param argumentName
  */
 + (void)assertURLArgumentNotNilOrMissing:(NSURL *)argument argumentName:(NSString *)argumentName;
 

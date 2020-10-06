@@ -29,7 +29,6 @@
 
 /**
    initialises the login view controller with Client App details
-   @param completionBlock
  */
 
 - (instancetype)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
@@ -38,7 +37,6 @@
    custom initialisers
    The completion block BOOL variable is set to YES if login has been successful
    NO otherwise
-   @param completionBlock
  */
 - (instancetype)initWithCompletionBlock:(MendeleyCompletionBlock)completionBlock customOAuthProvider:(id<MendeleyOAuthProvider>)customOAuthProvider;
 

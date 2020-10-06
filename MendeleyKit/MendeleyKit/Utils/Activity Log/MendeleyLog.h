@@ -71,16 +71,11 @@ typedef NS_ENUM (NSUInteger, MendeleyLogLevel)
 
 /**
  * Logs a message using the given parameters
-   @param domain
-   @param level
-   @param format (variable)
  */
 - (void)logMessageWithDomainString:(NSString *)domain level:(MendeleyLogLevel)level message:(NSString *)format, ...;
 
 /**
  * Logs an error message using the given error object
-   @param domain
-   @param error
  */
 - (void)logMessageWithDomainString:(NSString *)domain error:(NSError *)error;
 
@@ -96,7 +91,6 @@ typedef NS_ENUM (NSUInteger, MendeleyLogLevel)
 
 /**
  * Allow to the client to insert info about current device and user
-   @param deviceInfoDict
  */
 - (void)addUserInfoToPersistentLog:(NSDictionary *)deviceInfoDict;
 

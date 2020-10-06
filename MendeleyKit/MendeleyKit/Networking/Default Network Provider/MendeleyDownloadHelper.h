@@ -31,11 +31,6 @@
 
 /**
    This method is used to provide progress feedback for download tasks
-   @param session
-   @param downloadTask
-   @param bytesWritten
-   @param totalBytesWritten
-   @param totalBytesExpectedToWrite
  */
 - (void)           URLSession:(NSURLSession *)session
                  downloadTask:(MendeleyNetworkDownloadTask *)downloadTask
@@ -45,9 +40,6 @@
 
 /**
    this method notifies when the download terminates
-   @param session
-   @param downloadTask
-   @param location
  */
 - (void)           URLSession:(NSURLSession *)session
                  downloadTask:(MendeleyNetworkDownloadTask *)downloadTask

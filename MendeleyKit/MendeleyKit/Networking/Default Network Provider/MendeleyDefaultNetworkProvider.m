@@ -792,12 +792,12 @@
           didFinishDownloadingToURL:location];
 } 
 
-#warning needs implementing
 - (void)    URLSession:(NSURLSession *)session
           downloadTask:(NSURLSessionDownloadTask *)downloadTask
      didResumeAtOffset:(int64_t)fileOffset
     expectedTotalBytes:(int64_t)expectedTotalBytes
 {
+    // needs implementing
 }
 
 - (void)            URLSession:(NSURLSession *)session

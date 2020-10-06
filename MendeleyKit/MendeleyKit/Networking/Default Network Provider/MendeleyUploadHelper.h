@@ -29,11 +29,6 @@
 @interface MendeleyUploadHelper : NSObject
 
 /**
-   @param session
-   @param uploadTask
-   @param bytesSent
-   @param totalBytesSent
-   @param totalBytesExpectedToSend
  */
 - (void)          URLSession:(NSURLSession *)session
                         task:(MendeleyNetworkUploadTask *)uploadTask

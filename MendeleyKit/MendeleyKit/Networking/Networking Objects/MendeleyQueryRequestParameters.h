@@ -44,7 +44,6 @@
 /**
    checks if a property with the provided name exists in the MendeleyQueryRequestParameters object
    and the subclass calling it
-   @param propertyName
  */
 - (BOOL)hasQueryParameterWithName:(NSString *)queryParameterName;
 @end
@@ -95,7 +94,6 @@
 @property (nonatomic, strong) NSString *source;
 @end
 
-
 @interface MendeleyCatalogParameters : MendeleyQueryRequestParameters
 @property (nonatomic, strong) NSString *arxiv;
 @property (nonatomic, strong) NSString *doi;
@@ -137,8 +135,3 @@
 @property (nonatomic, strong) NSNumber *skip_news_item_check;
 @property (nonatomic, strong) NSString *start_from;
 @end
-
-
-
-
-

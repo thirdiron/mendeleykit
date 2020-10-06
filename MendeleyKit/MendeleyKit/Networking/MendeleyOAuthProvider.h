@@ -41,9 +41,6 @@
 /**
    Some registered clients may be able to authenticate directly using username/password - instead of
    going through the login web-site.
-   @param username
-   @param password
-   @param completionBlock
  */
 - (void)authenticateWithUserName:(NSString *)username
                         password:(NSString *)password
@@ -54,8 +51,6 @@
    if unsuccessful. When nil, an error object will be provided.
    Threading note: authentication methods are used at login time, typically, from a view controller. It is assumed
    the method is being called on the main thread.
-   @param authenticationCode
-   @param completionBlock
  */
 - (void)authenticateWithAuthenticationCode:(NSString *)authenticationCode
                            completionBlock:(MendeleyOAuthCompletionBlock)completionBlock;
@@ -65,7 +60,7 @@
    if unsuccessful. When nil, an error object will be provided.
    Threading note: refresh maybe handled on main as well as background thread.
    @param credentials the current credentials (to be updated with the refresh)
-   @param completionBlock
+   @param completionBlock completion block
  */
 - (void)refreshTokenWithOAuthCredentials:(MendeleyOAuthCredentials *)credentials
                          completionBlock:(MendeleyOAuthCompletionBlock)completionBlock;
@@ -76,7 +71,7 @@
  Threading note: refresh maybe handled on main as well as background thread.
  @param credentials the current credentials (to be updated with the refresh)
  @param task the task corresponding to the current operation
- @param completionBlock
+ @param completionBlock completion block
  */
 - (void)refreshTokenWithOAuthCredentials:(MendeleyOAuthCredentials *)credentials
                                     task:(MendeleyTask *)task
@@ -86,8 +81,6 @@
 
 /**
    checks if the url string given is the Redirect URL
-   @param urlString
-   @return YES if it is URL string
  */
 - (BOOL)urlStringIsRedirectURI:(NSString *)urlString;
 

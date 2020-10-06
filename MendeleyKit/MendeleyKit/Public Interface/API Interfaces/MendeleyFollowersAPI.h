@@ -33,11 +33,7 @@
 
 
 /**
-   Obtain a list of followers for a given user.
-   @param profileID
-   @param parameters
-   @param task
-   @param completionBlock - the array contained in the completionBlock will be an array of MendeleyFollow objects
+   Obtain a list of followers for a given user (the array contained in the completionBlock will be an array of MendeleyFollow objects).
  */
 - (void)followersForUserWithID:(NSString *)profileID
                     parameters:(MendeleyFollowersParameters *)parameters
@@ -45,11 +41,7 @@
                completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
 
 /**
-   Obtain a list of users followed by a given user.
-   @param profileID
-   @param parameters
-   @param task
-   @param completionBlock - the array contained in the completionBlock will be an array of MendeleyFollow objects
+   Obtain a list of users followed by a given user (the array contained in the completionBlock will be an array of MendeleyFollow objects).
  */
 - (void)followedByUserWithID:(NSString *)profileID
                   parameters:(MendeleyFollowersParameters *)parameters
@@ -57,11 +49,7 @@
              completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
 
 /**
-   Obtain a list of pending followers for a given user.
-   @param profileID
-   @param parameters
-   @param task
-   @param completionBlock - the array contained in the completionBlock will be an array of MendeleyFollow objects
+   Obtain a list of pending followers for a given user (the array contained in the completionBlock will be an array of MendeleyFollow objects).
  */
 - (void)pendingFollowersForUserWithID:(NSString *)profileID
                            parameters:(MendeleyFollowersParameters *)parameters
@@ -69,11 +57,7 @@
                       completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
 
 /**
-   Obtain a list of pending users followed by a given user.
-   @param profileID
-   @param parameters
-   @param task
-   @param completionBlock - the array contained in the completionBlock will be an array of MendeleyFollow objects
+   Obtain a list of pending users followed by a given user (the array contained in the completionBlock will be an array of MendeleyFollow objects).
  */
 - (void)pendingFollowedByUserWithID:(NSString *)profileID
                          parameters:(MendeleyFollowersParameters *)parameters
@@ -81,10 +65,7 @@
                     completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
 
 /**
-   Start following another user.
-   @param followedID
-   @param task
-   @param completionBlock - the object contained in the completionBlock will be a MendeleyFollow object
+   Start following another user (the object contained in the completionBlock will be a MendeleyFollow object).
  */
 - (void)followUserWithID:(NSString *)followedID
                     task:(MendeleyTask *)task
@@ -93,9 +74,6 @@
 
 /**
    Accept a pending follow request
-   @param requestID
-   @param task
-   @param completionBlock
  
  */
 - (void)acceptFollowRequestWithID:(NSString *)requestID
@@ -104,9 +82,6 @@
 
 /**
    Stop following a profile, cancel a follow request or reject a follow request
-   @param relationshipID
-   @param task
-   @param completionBlock
  */
 - (void)stopOrDenyRelationshipWithID:(NSString *)relationshipID
                           task:(MendeleyTask *)task
@@ -114,10 +89,6 @@
 
 /**
     Returns a follow relationship between two profiles if it exists.
-    @param followerID
-    @param followedID
-    @param task
-    @param completionBlock
  */
 
 - (void)followRelationshipBetweenFollower:(NSString *)followerID

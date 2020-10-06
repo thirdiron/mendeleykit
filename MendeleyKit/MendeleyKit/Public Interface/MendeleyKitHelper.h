@@ -47,16 +47,10 @@
    @name MendeleyKitHelper
    This class provides generic helper methods used in various API calls/callbacks
  */
-/**
-   @param delegate
-   @return an instance of the helper
- */
 - (instancetype)initWithDelegate:(id <MendeleyKitHelperDelegate> )delegate;
 
 /**
    checks whether a MendeleyResponse can be marked as successful or whether an error has occurred
-   @param response
-   @param error
  */
 - (BOOL)isSuccessForResponse:(MendeleyResponse *)response
                        error:(NSError **)error;
@@ -65,9 +59,9 @@
    Used in GET REST API calls: this gets a list of Mendeley Objects from the server
    @param objectTypeString e.g. MendeleyDocument
    @param apiString e.g. documents
-   @param queryParameters
+   @param queryParameters parameters
    @param additionalHeaders - this usually includes the Accept:"****+1.json" type header to accept API specific JSON responses
-   @param completionBlock
+   @param completionBlock completion block
  */
 - (void)mendeleyObjectListOfType:(NSString *)objectTypeString
                              api:(NSString *)apiString
@@ -80,9 +74,9 @@
    Used in GET REST API calls. A specific call to get a list of ID strings from the server
    (e.g. /folders/{folderID}/documents)
    @param apiString e.g. documents
-   @param queryParameters
+   @param queryParameters parameters
    @param additionalHeaders - this usually includes the Accept:"****+1.json" type header to accept API specific JSON responses
-   @param completionBlock
+   @param completionBlock completion block
  */
 - (void)mendeleyIDStringListForAPI:(NSString *)apiString
                         parameters:(NSDictionary *)queryParameters
@@ -93,10 +87,10 @@
 /**
    Used in GET REST API calls: obtains a single Mendeley Object
    @param objectTypeString e.g. MendeleyDocument
-   @param queryParameters
+   @param queryParameters parameters
    @param apiString e.g. documents
    @param additionalHeaders - this usually includes the Accept:"****+1.json" type header to accept API specific JSON responses
-   @param completionBlock
+   @param completionBlock completion block
  */
 - (void)mendeleyObjectOfType:(NSString *)objectTypeString
                   parameters:(NSDictionary *)queryParameters
@@ -107,9 +101,6 @@
 
 /**
    This creates a new MendeleyObject on the server
-   @param mendeleyObject
-   @param apiString e.g. documents
-   @param completionBlock
  */
 - (void)createMendeleyObject:(MendeleySecureObject *)mendeleyObject
                          api:(NSString *)apiString
@@ -118,11 +109,11 @@
 
 /**
    Used in POST REST API calls
-   @param mendeleyObject
+   @param mendeleyObject object
    @param apiString e.g. documents
    @param additionalHeaders - this usually includes the Accept:"****+1.json" type header to accept API specific JSON responses
    @param objectTypeString e.g. MendeleyDocument
-   @param completionBlock
+   @param completionBlock completion block
  */
 - (void)createMendeleyObject:(MendeleySecureObject *)mendeleyObject
                          api:(NSString *)apiString
@@ -134,9 +125,6 @@
 /**
    Used in PATCH REST API calls
    This updates an existing Mendeley Object on the server
-   @param updatedMendeleyObject
-   @param apiString e.g. documents
-   @param completionBlock
  */
 - (void)updateMendeleyObject:(MendeleySecureObject *)updatedMendeleyObject
                          api:(NSString *)apiString
@@ -146,10 +134,10 @@
 /**
    Used in PATCH REST API calls
    This updates an existing Mendeley Object on the server
-   @param mendeleyObject
+   @param updatedMendeleyObject object
    @param apiString e.g. documents
    @param additionalHeaders - this usually includes the Accept:"****+1.json" type header to accept API specific JSON responses
-   @param completionBlock
+   @param completionBlock completion block
  */
 - (void)updateMendeleyObject:(MendeleySecureObject *)updatedMendeleyObject
                          api:(NSString *)apiString
@@ -161,11 +149,11 @@
 /**
    Used in PATCH REST API calls
    This updates an existing Mendeley Object on the server, returning the updated object in the completionBlock
-   @param mendeleyObject
+   @param updatedMendeleyObject object
    @param apiString e.g. documents
    @param additionalHeaders - this usually includes the Accept:"****+1.json" type header to accept API specific JSON responses
    @param objectTypeString e.g. MendeleyDocument
-   @param completionBlock
+   @param completionBlock completion block
  */
 - (void)updateMendeleyObject:(MendeleySecureObject *)updatedMendeleyObject
                          api:(NSString *)apiString
@@ -176,8 +164,6 @@
 
 /**
    Used in DELETE REST API calls. This deletes an object on the server
-   @param apiString e.g. documents
-   @param completionBlock
  */
 - (void)deleteMendeleyObjectWithAPI:(NSString *)apiString
                                task:(MendeleyTask *)task
@@ -187,8 +173,8 @@
    This is a specific GET request to download a file (typically a PDF file) to a specified location
    @param apiString e.g. documents
    @param fileURL the location to save the downloaded file in
-   @param progressBlock
-   @param completionBlock
+   @param progressBlock progress block
+   @param completionBlock completion block
  */
 - (void)downloadFileWithAPI:(NSString *)apiString
                   saveToURL:(NSURL *)fileURL
