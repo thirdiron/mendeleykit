@@ -59,7 +59,7 @@
               customOAuthProvider:(id<MendeleyOAuthProvider>)customOAuthProvider
 {
     NSRect frame = NSMakeRect(0, 0, 550, 450);
-    NSUInteger styleMask = NSTitledWindowMask | NSResizableWindowMask | NSClosableWindowMask;
+    NSUInteger styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskResizable | NSWindowStyleMaskClosable;
     NSWindow *window = [[NSWindow alloc]
                         initWithContentRect:frame
                                   styleMask:styleMask
