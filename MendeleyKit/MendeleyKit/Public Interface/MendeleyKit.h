@@ -946,18 +946,18 @@
                                  followed:(NSString *)followedID
                           completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
 
-#pragma mark - Recommendations
+#pragma mark - Recommendations (deprecated)
 
 - (MendeleyTask *)recommendationsBasedOnLibraryArticlesWithParameters:(MendeleyRecommendationsParameters *)queryParameters
-                                                      completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
+                                                      completionBlock:(MendeleyArrayCompletionBlock)completionBlock __attribute__((deprecated));
 
 - (MendeleyTask *)feedbackOnRecommendation:(NSString *)trace
                                   position:(NSNumber *)position
                                 userAction:(NSString *)userAction
                                   carousel:(NSNumber *)carousel
-                           completionBlock:(MendeleyCompletionBlock)completionBlock;
+                           completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
-#pragma mark - Feeds
+#pragma mark - Feeds (deprecated)
 
 /**
  This method is only used when paging through a list of documents on the server.
@@ -968,7 +968,7 @@
  @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)feedListWithLinkedURL:(NSURL *)linkURL
-              completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
+              completionBlock:(MendeleyArrayCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  obtains a list of feeds for the first page.
@@ -977,31 +977,31 @@
  @return a MendeleyTask object used for cancelling the operation
  */
 - (MendeleyTask *)feedListWithQueryParameters:(MendeleyFeedsParameters *)queryParameters
-                    completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
+                    completionBlock:(MendeleyArrayCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  obtains feed with a given identifier
  */
 - (MendeleyTask *)feedWithId:(NSString *)feedId
-   completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
+   completionBlock:(MendeleyObjectCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  likes a feed item.
  */
 - (MendeleyTask *)likeFeedWithID:(NSString *)feedID
-       completionBlock:(MendeleyCompletionBlock)completionBlock;
+       completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  likes a feed item.
  */
 - (MendeleyTask *)unlikeFeedWithID:(NSString *)feedID
-         completionBlock:(MendeleyCompletionBlock)completionBlock;
+         completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  List of users that like given item.
  */
 - (MendeleyTask *)likersForFeedWithID:(NSString *)feedID
-            completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
+            completionBlock:(MendeleyArrayCompletionBlock)completionBlock __attribute__((deprecated));
 
 
 /**
@@ -1009,71 +1009,71 @@
  */
 
 - (MendeleyTask *)sharersForFeedWithID:(NSString *)feedID
-             completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
+             completionBlock:(MendeleyArrayCompletionBlock)completionBlock __attribute__((deprecated));
 
-#pragma mark - User Posts
+#pragma mark - User Posts (deprecated)
 
 /**
  Creates a new user post.
  */
 
 - (MendeleyTask *)createUserPost:(MendeleyNewUserPost *)newPost
-                 completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
+                 completionBlock:(MendeleyObjectCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  Deletes a user post.
  */
 - (MendeleyTask *)deleteUserPostWithPostID:(NSString *)postID
-                           completionBlock:(MendeleyCompletionBlock)completionBlock;
+                           completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  Creates a new group post.
  */
 - (MendeleyTask *)createGroupPost:(MendeleyNewGroupPost *)groupPost
-                  completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
+                  completionBlock:(MendeleyObjectCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  Deletes a group post.
  */
 - (MendeleyTask *)deleteGroupPostWithPostID:(NSString *)postID
-                            completionBlock:(MendeleyCompletionBlock)completionBlock;
+                            completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
-#pragma mark - Shares
+#pragma mark - Shares (deprecated)
 
 - (MendeleyTask *)shareFeedWithQueryParameters:(MendeleySharesParameters *)queryParameters
-                     completionBlock:(MendeleyCompletionBlock)completionBlock;
+                     completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
 - (MendeleyTask *)shareDocumentWithDocumentID:(NSString *)documentID
-                              completionBlock:(MendeleyCompletionBlock)completionBlock;
+                              completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
 - (MendeleyTask *)shareDocumentWithDOI:(NSString *)doi
-                       completionBlock:(MendeleyCompletionBlock)completionBlock;
+                       completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
 - (MendeleyTask *)shareDocumentWithScopus:(NSString *)scopus
-                          completionBlock:(MendeleyCompletionBlock)completionBlock;
+                          completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
-#pragma mark - Comments
+#pragma mark - Comments (deprecated)
 
 /**
  Get expanded (i.e. with profile information) comments.
  */
 
 - (MendeleyTask *)expandedCommentsWithNewsItemID:(NSString *)newsItemID
-                       completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
+                       completionBlock:(MendeleyArrayCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  Get single comment.
  */
 
 - (MendeleyTask *)commentWithCommentID:(NSString *)commentID
-             completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
+             completionBlock:(MendeleyObjectCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  Create new comment.
  */
 
 - (MendeleyTask *)createComment:(MendeleyComment *)comment
-                completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
+                completionBlock:(MendeleyObjectCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  Edit existing comment.
@@ -1081,14 +1081,14 @@
 
 - (MendeleyTask *)updateCommentWithCommentID:(NSString *)commentID
                                       update:(MendeleyCommentUpdate *)update
-                   completionBlock:(MendeleyObjectCompletionBlock)completionBlock;
+                   completionBlock:(MendeleyObjectCompletionBlock)completionBlock __attribute__((deprecated));
 
 /**
  Delete comment.
  */
 
 - (MendeleyTask *)deleteCommentWithCommentID:(NSString *)commentID
-                   completionBlock:(MendeleyCompletionBlock)completionBlock;
+                   completionBlock:(MendeleyCompletionBlock)completionBlock __attribute__((deprecated));
 
 #pragma mark - Datasets
 /**

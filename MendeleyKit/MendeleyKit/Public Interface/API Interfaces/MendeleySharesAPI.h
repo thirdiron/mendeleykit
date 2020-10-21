@@ -20,6 +20,7 @@
 
 #import "MendeleyObjectAPI.h"
 
+__attribute__ ((deprecated))
 @interface MendeleySharesAPI : MendeleyObjectAPI
 
 /**
