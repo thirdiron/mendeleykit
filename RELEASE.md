@@ -1,6 +1,6 @@
 RELEASE NOTES
 
-Date: November 2020 (3.5.3)
+Date: November 2020 (3.6.0)
 - marked feed & suggest APIs as deprecated
 - fixed compilation warnings
 

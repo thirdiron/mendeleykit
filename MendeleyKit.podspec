@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "MendeleyKit"
-  s.version = "3.5.3"
+  s.version = "3.6.0"
   s.summary = "The Mendeley Objective-C/Swift client SDK."
   s.description = <<-DESC
                   # MendeleyKit
@@ -15,7 +15,7 @@ DESC
   s.license = 'Apache Licence, Version 2.0'
   s.authors = { "Mendeley iOS" => "ios@mendeley.com"}
 
-  s.source = { :git => "https://github.com/Mendeley/mendeleykit.git", :tag => "3.5.3" }
+  s.source = { :git => "https://github.com/Mendeley/mendeleykit.git", :tag => "3.6.0" }
   s.module_name  = "MendeleyKit"
   s.swift_version = '5.0'
   s.requires_arc = true
