@@ -25,18 +25,17 @@
 #import "MendeleyCancellableRequest.h"
 
 @interface MendeleyNSURLRequestHelper : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate, MendeleyCancellableRequest>
+
 @property (nonatomic, copy) MendeleyResponseCompletionBlock completionBlock;
 @property (nonatomic, strong) MendeleyRequest *mendeleyRequest;
 @property (nonatomic, strong) NSURLConnection *thisConnection;
 @property (nonatomic, strong) NSMutableData *responseBody;
 @property (nonatomic, strong) NSHTTPURLResponse *response;
 @property (nonatomic, strong) MendeleyResponse *mendeleyResponse;
+
 /**
    initialises the connection with a MendeleyRequest. The MendeleyRequest object holds all the data we need
    to make the network connection
-   @param mendeleyRequest
-   @param completionBlock
-   @return an instance of MendeleyNSURLRequestHelper
  */
 - (id)initWithMendeleyRequest:(MendeleyRequest *)mendeleyRequest
               completionBlock:(MendeleyResponseCompletionBlock)completionBlock;
@@ -46,4 +45,5 @@
    @return BOOL if successful
  */
 - (BOOL)startRequest;
+
 @end

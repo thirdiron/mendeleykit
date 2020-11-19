@@ -20,13 +20,11 @@
 
 #import "MendeleyObjectAPI.h"
 
+__attribute__ ((deprecated))
 @interface MendeleyUserPostsAPI : MendeleyObjectAPI
 
 /**
  Creates a new user post.
- @param newPost
- @param task
- @param completionBlock
  */
 - (void)createUserPost:(MendeleyNewUserPost *)newPost
                   task:(MendeleyTask *)task
@@ -34,9 +32,6 @@
 
 /**
  Deletes a user post.
- @param postID
- @param task
- @param completionBlock
  */
 - (void)deleteUserPostWithPostID:(NSString *)postID
                             task:(MendeleyTask *)task
@@ -44,9 +39,6 @@
 
 /**
  Creates a new group post.
- @param groupPost
- @param task
- @param completionBlock
  */
 - (void)createGroupPost:(MendeleyNewGroupPost *)groupPost
                    task:(MendeleyTask *)task
@@ -55,9 +47,6 @@
 
 /**v
  Deletes a group post.
- @param postID
- @param task
- @param completionBlock
  */
 - (void)deleteGroupPostWithPostID:(NSString *)postID
                              task:(MendeleyTask *)task

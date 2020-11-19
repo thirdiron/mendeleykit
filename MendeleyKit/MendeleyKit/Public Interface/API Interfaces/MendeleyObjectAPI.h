@@ -36,17 +36,13 @@
 /**
    A general creator of MendeleyObjectAPI
    @param provider the network provider. By default the MendeleyDefaultNetworkProvider is taken. This is based on NSURLSession
-   @param baseURL
+   @param baseURL base URL
  */
 - (instancetype)initWithNetworkProvider:(id <MendeleyNetworkProvider> )provider
                                 baseURL:(NSURL *)baseURL;
 
 /**
    A convenience method that returns the link for the image of the choosen type passing a MendeleyPhoto Object
-   @param the photo object
-   @param iconType
-   @param task
-   @param error
  */
 
 - (NSString *)linkFromPhoto:(MendeleyPhoto *)photo

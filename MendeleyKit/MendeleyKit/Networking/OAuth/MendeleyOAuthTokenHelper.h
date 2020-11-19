@@ -24,7 +24,6 @@
 @interface MendeleyOAuthTokenHelper : NSObject
 /**
    refreshes and stores the access tokens
-   @param refreshBlock
  */
 + (void)refreshTokenWithRefreshBlock:(MendeleyCompletionBlock)refreshBlock;
 

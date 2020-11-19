@@ -30,7 +30,7 @@
 
 /**
    @param jsonData should be already deserialized JSON data, either NSArray or NSDictionary
-   @param expectedType
+   @param expectedType expected type
    @param completionBlock will return either a MendeleyObject type model class or an NSArray of model objects
  */
 - (void)parseJSONData:(nonnull id)jsonData
@@ -40,7 +40,7 @@
 /**
    converts an existing Model class into a serialized JSON object (NSData)
    @param model can either be a model object or an array of model objects
-   @param error
+   @param error error
    @return a serialized NSData JSON object or nil if error
  */
 - (nullable NSData *)jsonObjectFromModelOrModels:(nonnull id)model error:(NSError *__nullable *__nullable)error;
@@ -58,8 +58,8 @@
    {
     "id" : "xxxxx-xxxx-xxxx-xxxxxxxxx"
    }
-   @param objectID
-   @param error
+   @param objectID object ID
+   @param error error
    @return JSON object as NSData or nil if error
  */
 - (nullable NSData *)jsonObjectForID:(nonnull NSString *)objectID error:(NSError *__nullable *__nullable)error;
@@ -67,9 +67,8 @@
 /**
  *    converts an existing Model class into a serialized dictionary object (NSDictionary)
  *
- *  @param model model is a model object
+ *  @param model model object
  *  @param error error
- *
  *  @return dictionary object as NSDictionary or nil if error
  */
 - (nullable NSDictionary *)dictionaryFromModel:(nonnull id)model error:(NSError *__nullable *__nullable)error;

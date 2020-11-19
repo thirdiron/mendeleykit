@@ -20,13 +20,11 @@
 
 #import "MendeleyObjectAPI.h"
 
+__attribute__ ((deprecated))
 @interface MendeleyCommentsAPI : MendeleyObjectAPI
 
 /**
  Get expanded (i.e. with profile information) comments.
- @param newsItemID
- @param task
- @param completionBlock
  */
 
 - (void)expandedCommentsWithNewsItemID:(NSString *)newsItemID
@@ -35,9 +33,6 @@
 
 /**
  Get single comment.
- @param commentID
- @param task
- @param completionBlock
  */
 
 - (void)commentWithCommentID:(NSString *)commentID
@@ -46,9 +41,6 @@
 
 /**
  Create new comment.
- @param comment
- @param task
- @param completionBlock
  */
 
 - (void)createComment:(MendeleyComment *)comment
@@ -57,10 +49,6 @@
 
 /**
  Edit existing comment.
- @param commentID
- @param update
- @param task
- @param completionBlock
  */
 
 - (void)updateCommentWithCommentID:(NSString *)commentID
@@ -70,9 +58,6 @@
 
 /**
  Delete comment.
- @param commentID
- @param task
- @param completionBlock
  */
 
 - (void)deleteCommentWithCommentID:(NSString *)commentID

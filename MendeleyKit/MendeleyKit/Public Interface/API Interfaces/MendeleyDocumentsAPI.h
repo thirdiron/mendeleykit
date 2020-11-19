@@ -34,10 +34,6 @@
 /**
    This method is only used when paging through a list of documents on the server.
    All required parameters are provided in the linkURL, which should not be modified
-
-   @param linkURL the full HTTP link to the document listings page
-   @param task
-   @param completionBlock
  */
 - (void)documentListWithLinkedURL:(NSURL *)linkURL
                              task:(MendeleyTask *)task
@@ -45,9 +41,6 @@
 
 /**
    obtains a list of documents for the first page.
-   @param parameters the parameter set to be used in the request
-   @param task
-   @param completionBlock
  */
 - (void)documentListWithQueryParameters:(MendeleyDocumentParameters *)queryParameters
                                    task:(MendeleyTask *)task
@@ -55,10 +48,6 @@
 
 /**
    obtains the first page of authored documents for another user.
-   @param profileID profile ID of the user
-   @param parameters the parameter set to be used in the request
-   @param task
-   @param completionBlock
  */
 - (void)authoredDocumentListForUserWithProfileID:(NSString *)profileID
                                  queryParameters:(MendeleyDocumentParameters *)queryParameters
@@ -67,9 +56,6 @@
 
 /**
    obtains a document for given ID from the library
-   @param documentID
-   @param task
-   @param completionBlock
  */
 - (void)documentWithDocumentID:(NSString *)documentID
                           task:(MendeleyTask *)task
@@ -77,9 +63,6 @@
 
 /**
    This method returns a catalog document for a given catalog ID
-   @param catalogID
-   @param task
-   @param completionBlock
  */
 - (void)catalogDocumentWithCatalogID:(NSString *)catalogID
                                 task:(MendeleyTask *)task
@@ -87,9 +70,6 @@
 
 /**
    This method obtains a list of documents based on a filter. The filter should not be nil or empty
-   @param queryParameters
-   @param task
-   @param completionBlock
  */
 - (void)catalogDocumentWithParameters:(MendeleyCatalogParameters *)queryParameters
                                  task:(MendeleyTask *)task
@@ -97,9 +77,6 @@
 /**
    this creates a document based on the mendeley object model provided in the argument.
    The server will respond with the JSON data structure for the new object
-   @param mendeleyDocument
-   @param task
-   @param completionBlock
  */
 - (void)createDocument:(MendeleyDocument *)mendeleyDocument
                   task:(MendeleyTask *)task
@@ -107,9 +84,6 @@
 
 /**
    modify/update a document with ID. The server will return a JSON object with the updated data
-   @param updatedMendeleyDocument
-   @param task
-   @param completionBlock
  */
 - (void)updateDocument:(MendeleyDocument *)updatedMendeleyDocument
                   task:(MendeleyTask *)task
@@ -119,9 +93,6 @@
 /**
    this method will remove a document with given ID permanently. The document data cannot be retrieved.
    However, the user will be able to get a list of permanently removed IDs
-   @param documentID
-   @param task
-   @param completionBlock
  */
 - (void)deleteDocumentWithID:(NSString *)documentID
                         task:(MendeleyTask *)task
@@ -130,9 +101,6 @@
 /**
    This method will move a document of given ID into the trash on the server. Data in trash can be restored
    (as opposed to using the deleteDocumentWithID:completionBlock: method which permanently removes them)
-   @param documentID
-   @param task
-   @param completionBlock
  */
 - (void)trashDocumentWithID:(NSString *)documentID
                        task:(MendeleyTask *)task
@@ -141,9 +109,6 @@
 /**
    This method returns a list of document IDs that were permanently deleted. The list of deleted IDs will be kept on
    the server for a limited period of time.
-   @param deletedSince
-   @param task
-   @param completionBlock
  */
 - (void)deletedDocumentsSince:(NSDate *)deletedSince
                       groupID:(NSString *)groupID
@@ -154,10 +119,6 @@
    This method obtains a list for a given page link of 'trashed' documents
    based on a list of query parameters.
    All required parameters are provided in the linkURL, which should not be modified
-
-   @param linkURL the full HTTP link to the document listings page
-   @param task
-   @param completionBlock
  */
 - (void)trashedDocumentListWithLinkedURL:(NSURL *)linkURL
                                     task:(MendeleyTask *)task
@@ -166,9 +127,6 @@
 /**
    This method obtains a list for the 'first' page of 'trashed' documents
    based on a list of query parameters.
-   @param parameters the parameter set to be used in the request
-   @param task
-   @param completionBlock
  */
 - (void)trashedDocumentListWithQueryParameters:(MendeleyDocumentParameters *)queryParameters
                                           task:(MendeleyTask *)task
@@ -178,9 +136,6 @@
    this method will remove a trashed document with given ID permanently.
    The document data cannot be retrieved.
    However, the user will be able to get a list of permanently removed IDs
-   @param documentID
-   @param task
-   @param completionBlock
  */
 - (void)deleteTrashedDocumentWithID:(NSString *)documentID
                                task:(MendeleyTask *)task
@@ -189,9 +144,6 @@
 /**
    this method will restore a trashed document.
    In essence this means the document must be retrieved using the /documents API
-   @param documentID
-   @param task
-   @param completionBlock
  */
 - (void)restoreTrashedDocumentWithID:(NSString *)documentID
                                 task:(MendeleyTask *)task
@@ -200,9 +152,6 @@
 
 /**
    obtains a document for given ID from the library
-   @param documentID
-   @param task
-   @param completionBlock
  */
 - (void)trashedDocumentWithDocumentID:(NSString *)documentID
                                  task:(MendeleyTask *)task
@@ -210,26 +159,18 @@
 
 /**
    Method to obtain the supported document types (e.g. journal, book etc)
-   @param task
-   @param completionBlock
  */
 - (void)documentTypesWithTask:(MendeleyTask *)task
               completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
 
 /**
    Method to obtain the supported identifier types (e.g. pmid, doi, arXiv etc)
-   @param task
-   @param completionBlock
  */
 - (void)identifierTypesWithTask:(MendeleyTask *)task
                 completionBlock:(MendeleyArrayCompletionBlock)completionBlock;
 
 /**
    uploads a file from a location and returns a Mendeley Document in the completion handler
-   @param fileURL the location of the file
-   @param mimeType e.g. 'application/pdf'
-   @param task
-   @param completionBlock
  */
 - (void)documentFromFileWithURL:(NSURL *)fileURL
                        mimeType:(NSString *)mimeType
@@ -238,11 +179,12 @@
 
 /**
  Method clones document metadata to a new group/lib. The returned metadata contain the user document metadata including the document ID for the cloned document
- @param document the document to be cloned
- @param toGroup the target group ID. Use nil if you want to clone to the users' library. In this case the profile ID must be provided
- @param toFolder the target folder ID.
+ @param documentID the document to be cloned
+ @param groupID the target group ID. Use nil if you want to clone to the users' library. In this case the profile ID must be provided
+ @param folderID the target folder ID.
  @param profileID must be provided if the groupID is nil (this means clone to user library). Otherwise values are ignored
- @param completionBlock
+ @param task the task
+ @param completionBlock the completion block
  */
 - (void)cloneDocumentWithID:(NSString *)documentID
                     groupID:(NSString *)groupID
@@ -254,9 +196,10 @@
 /**
  Method clones files associated with a document from source to target.
  The target document must exist - otherwise the completionBlock will return an error
- @param document the source document with files
- @param toDocument the target document ID
- @param completionBlock
+ @param sourceDocumentID the source document with files
+ @param targetDocumentID the target document ID
+ @param task the task
+ @param completionBlock the completion block
  */
 - (void)cloneDocumentFiles:(NSString *)sourceDocumentID
           targetDocumentID:(NSString *)targetDocumentID
@@ -267,11 +210,12 @@
 /**
  Method clones document metadata to a new group/lib. It also clones any associated files from source to target document
  The returned metadata contain the user document metadata including the document ID for the cloned document
- @param document the document to be cloned
- @param toGroup the target group ID. Use nil if you want to clone to the users' library. In this case the profile ID must be provided
- @param toFolder the target folder ID.
+ @param documentID the document to be cloned
+ @param groupID the target group ID. Use nil if you want to clone to the users' library. In this case the profile ID must be provided
+ @param folderID the target folder ID.
  @param profileID must be provided if the groupID is nil (this means clone to user library). Otherwise values are ignored
- @param completionBlock
+ @param task the task
+ @param completionBlock the completion block
  */
 - (void)cloneDocumentAndFiles:(NSString *)documentID
                       groupID:(NSString *)groupID

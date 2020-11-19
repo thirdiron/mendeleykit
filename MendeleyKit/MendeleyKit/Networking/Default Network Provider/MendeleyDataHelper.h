@@ -27,21 +27,12 @@
    @name This class provides callback methods for download tasks. Used in conjunction with the
    Default Network Provider (NSURLSession based)
  */
-/**
-   @param session
-   @param dataTask
-   @param response
-   @param completionHandler
- */
 - (void)    URLSession:(NSURLSession *)session
               dataTask:(MendeleyNetworkTask *)dataTask
     didReceiveResponse:(NSURLResponse *)response
      completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler;
 
 /**
-   @param session
-   @param task
-   @param error
  */
 - (void)      URLSession:(NSURLSession *)session
                     task:(MendeleyNetworkTask *)task

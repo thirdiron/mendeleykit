@@ -46,37 +46,31 @@
 
 /**
    this method check the availability of the Mendeley Server
-   @param completionBlock
  */
 - (void)mendeleyServerIsReachableWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
    this method check the availability of the Mendeley Documents Endpoint
-   @param completionBlock
  */
 - (void)mendeleyDocumentServiceIsReachableWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
    this method check the availability of the Mendeley Folders Endpoint
-   @param completionBlock
  */
 - (void)mendeleyFolderServiceIsReachableWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
    this method check the availability of the Mendeley Annotations Endpoint
-   @param completionBlock
  */
 - (void)mendeleyAnnotationServiceIsReachableWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
    this method check the availability of the Mendeley Groups Endpoint
-   @param completionBlock
  */
 - (void)mendeleyGroupServiceIsReachableWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 
 /**
    this method check the availability of the Mendeley Files Endpoint
-   @param completionBlock
  */
 - (void)mendeleyFileServiceIsReachableWithCompletionBlock:(MendeleyCompletionBlock)completionBlock;
 

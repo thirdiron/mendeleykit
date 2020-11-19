@@ -31,10 +31,6 @@
  */
 /**
    initialises the login view controller with Client App details
-   @param clientKey
-   @param clientSecret
-   @param redirectURI
-   @param completionBlock
  */
 
 - (instancetype)initWithClientKey:(NSString *)clientKey
@@ -46,10 +42,6 @@
    custom initialisers
    The completion block BOOL variable is set to YES if login has been successful
    NO otherwise
-   @param clientKey
-   @param clientSecret
-   @param redirectURI
-   @param completionBlock
  */
 - (instancetype)initWithClientKey:(NSString *)clientKey
                      clientSecret:(NSString *)clientSecret

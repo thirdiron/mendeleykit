@@ -20,15 +20,12 @@
 
 #import "MendeleyObjectAPI.h"
 
+__attribute__ ((deprecated))
 @interface MendeleyFeedsAPI : MendeleyObjectAPI
 
 /**
  This method is only used when paging through a list of documents on the server.
  All required parameters are provided in the linkURL, which should not be modified
- 
- @param linkURL the full HTTP link to the document listings page
- @param task
- @param completionBlock
  */
 - (void)feedListWithLinkedURL:(NSURL *)linkURL
                              task:(MendeleyTask *)task
@@ -36,9 +33,6 @@
 
 /**
  obtains a list of feeds for the first page.
- @param parameters the parameter set to be used in the request
- @param task
- @param completionBlock
  */
 - (void)feedListWithQueryParameters:(MendeleyFeedsParameters *)queryParameters
                                    task:(MendeleyTask *)task
@@ -46,9 +40,6 @@
 
 /**
  obtains feed with a given identifier
- @param feedID
- @param task
- @param completionBlock
  */
 - (void)feedWithId:(NSString *)feedId
               task:(MendeleyTask *)task
@@ -57,9 +48,6 @@
 
 /**
  likes a feed item.
- @param feedID
- @param task
- @param completionBlock
  */
 - (void)likeFeedWithID:(NSString *)feedID
                   task:(MendeleyTask *)task
@@ -67,9 +55,6 @@
 
 /**
  likes a feed item.
- @param feedID
- @param task
- @param completionBlock
  */
 - (void)unlikeFeedWithID:(NSString *)feedID
                     task:(MendeleyTask *)task
@@ -77,9 +62,6 @@
 
 /**
  List of users that like given item.
- @param feedID
- @param task
- @param completionBlock
  */
 
 - (void)likersForFeedWithID:(NSString *)feedID
@@ -89,9 +71,6 @@
 
 /**
  List of users that have shared given item.
- @param feedID
- @param task
- @param completionBlock
  */
 
 - (void)sharersForFeedWithID:(NSString *)feedID

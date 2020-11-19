@@ -51,17 +51,11 @@
    Annotations have color components, which are stored as map<string, integer>, where string is
    either r,g,b
    This method converts the color JSON map into a UIColor object (iOS) or NSColor object (Mac OSX)
-   @param colorParameters
-   @param error
-   @return a UIColor/NSColor object or nil if error
  */
 + (id)colorFromParameters:(NSDictionary *)colorParameters error:(NSError **)error;
 
 /**
-   converts a color object (UIColor/NSColor) back into JSON
-   @param color
-   @param error
-   @return JSON map of color components
+   converts a color object (UIColor/NSColor) back into JSON map of color components
  */
 + (NSDictionary *)jsonColorFromColor:(id)color error:(NSError **)error;
 @end
@@ -74,17 +68,11 @@
 /**
    Annotations store position details as a map with parameters such as top_left etc.
    This converts a JSON map containing position metadata into a MendeleyHighlightBox object
-   @param boxParameters
-   @param error
-   @return a highlight box object
  */
 + (MendeleyHighlightBox *)boxFromJSONParameters:(NSDictionary *)boxParameters error:(NSError **)error;
 
 /**
    converts a highlight box object back into a NSDictionary (JSON map)
-   @param box
-   @param error
-   @return a map to be used in JSON
  */
 + (NSDictionary *)jsonBoxFromHighlightBox:(MendeleyHighlightBox *)box error:(NSError **)error;
 @end

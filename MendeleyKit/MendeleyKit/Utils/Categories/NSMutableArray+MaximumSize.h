@@ -24,15 +24,11 @@
 
 /**
    Ensures that an object is only added if the value is below maximumSize
-   @param object
-   @param maximumSize
  */
 - (void)addObject:(id)object maximumArraySize:(NSUInteger)maximumSize;
 
 /**
    Ensures that a list of objects is only added if the value is below maximumSize
-   @param objects
-   @param maximumSize
  */
 - (void)addObjectsFromArray:(NSArray *)objects maximumArraySize:(NSUInteger)maximumSize;
 
