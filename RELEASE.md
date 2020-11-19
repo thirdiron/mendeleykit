@@ -1,7 +1,11 @@
 RELEASE NOTES
 
+Date: November 2020 (3.5.3)
+- marked feed & suggest APIs as deprecated
+- fixed compilation warnings
+
 Date: October 2020 (3.5.2)
-- update token storage with secure coding
+- updated token storage with secure coding
 - fixed compilation warnings
 
 Date: June 2020 (3.5.1)
