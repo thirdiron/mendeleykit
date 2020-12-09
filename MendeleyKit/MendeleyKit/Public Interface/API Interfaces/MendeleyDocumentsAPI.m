@@ -459,12 +459,16 @@
 - (NSString *)safeFilenameFromURL:(NSURL *)fileURL
 {
     NSString *filename = [fileURL lastPathComponent];
-    // replace en dash with hyphen (they look similar, but only the hyphen is allowed)
+
+    // replace en/em dashes with hyphens (they look similar, but only the hyphen is allowed)
     filename = [filename stringByReplacingOccurrencesOfString:@"–" withString:@"-"];
+    filename = [filename stringByReplacingOccurrencesOfString:@"—" withString:@"-"];
+
     NSMutableCharacterSet *allowedCharacters = [NSMutableCharacterSet alphanumericCharacterSet];
-    [allowedCharacters addCharactersInString:@" .-"];
+    [allowedCharacters addCharactersInString:@" .-_"];
     NSCharacterSet *forbiddenCharacters = [allowedCharacters invertedSet];
     filename = [[filename componentsSeparatedByCharactersInSet:forbiddenCharacters] componentsJoinedByString:@""];
+
     return filename;
 }
 
