@@ -1,5 +1,8 @@
 RELEASE NOTES
 
+Date: December 2020 (3.6.1)
+- updated file upload method to filter out forbidden characters from filenames
+
 Date: November 2020 (3.6.0)
 - marked feed & suggest APIs as deprecated
 - fixed compilation warnings
