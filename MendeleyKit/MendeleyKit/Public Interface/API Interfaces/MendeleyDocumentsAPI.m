@@ -464,6 +464,7 @@
     filename = [filename stringByReplacingOccurrencesOfString:@"–" withString:@"-"];
     filename = [filename stringByReplacingOccurrencesOfString:@"—" withString:@"-"];
 
+    // keep only alphanumeric characters, with a couple of exceptions “ .-_”
     NSMutableCharacterSet *allowedCharacters = [NSMutableCharacterSet alphanumericCharacterSet];
     [allowedCharacters addCharactersInString:@" .-_"];
     NSCharacterSet *forbiddenCharacters = [allowedCharacters invertedSet];
