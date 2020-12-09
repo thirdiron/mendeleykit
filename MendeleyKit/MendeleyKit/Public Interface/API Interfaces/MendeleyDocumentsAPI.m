@@ -455,6 +455,24 @@
                           completionBlock:completionBlock];
 }
 
+// Removes forbidden characters from filename for upload
+- (NSString *)safeFilenameFromURL:(NSURL *)fileURL
+{
+    NSString *filename = [fileURL lastPathComponent];
+
+    // replace en/em dashes with hyphens (they look similar, but only the hyphen is allowed)
+    filename = [filename stringByReplacingOccurrencesOfString:@"–" withString:@"-"];
+    filename = [filename stringByReplacingOccurrencesOfString:@"—" withString:@"-"];
+
+    // keep only alphanumeric characters, with a couple of exceptions “ .-_”
+    NSMutableCharacterSet *allowedCharacters = [NSMutableCharacterSet alphanumericCharacterSet];
+    [allowedCharacters addCharactersInString:@" .-_"];
+    NSCharacterSet *forbiddenCharacters = [allowedCharacters invertedSet];
+    filename = [[filename componentsSeparatedByCharactersInSet:forbiddenCharacters] componentsJoinedByString:@""];
+
+    return filename;
+}
+
 - (void)documentFromFileWithURL:(NSURL *)fileURL
                        mimeType:(NSString *)mimeType
                            task:(MendeleyTask *)task
@@ -466,7 +484,7 @@
         mimeType = kMendeleyRESTRequestValuePDF;
     }
 
-    NSString *filename = [fileURL lastPathComponent];
+    NSString *filename = [self safeFilenameFromURL:fileURL];
     NSString *contentDisposition = [NSString stringWithFormat:@"%@; filename=\"%@\"", kMendeleyRESTRequestValueAttachment, filename];
 
     NSDictionary *header = @{ kMendeleyRESTRequestContentDisposition: contentDisposition,
