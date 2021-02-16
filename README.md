@@ -1,6 +1,8 @@
-# MendeleyKit — the Mendeley SDK for Objective-C/Swift #
+# [DEPRECATED] MendeleyKit — the Mendeley SDK for Objective-C/Swift #
 
-Latest Release: December 2020 (3.6.1)
+This framework is deprecated and no longer supported.
+
+Final Release: February 2021 (3.6.2)
 
 ## About MendeleyKit 3.x ##
 MendeleyKit is a standalone framework providing convenience methods
