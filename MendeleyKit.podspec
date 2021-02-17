@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "MendeleyKit"
-  s.version = "3.6.1"
+  s.version = "3.6.2"
   s.summary = "The Mendeley Objective-C/Swift client SDK."
   s.description = <<-DESC
                   # MendeleyKit
@@ -26,4 +26,5 @@ DESC
   s.macos.deployment_target = '10.13'
   s.macos.source_files = "MendeleyKit/MendeleyKitOSX/AppKit", "MendeleyKit/MendeleyKit/*.h", "MendeleyKit/MendeleyKit/**/*.{h,m,swift}"
   s.macos.exclude_files = 'MendeleyKit/MendeleyKit/UIKit/*.{h,m,swift}'
+  s.deprecated = true
 end
